@@ -5,8 +5,10 @@
 
 import UIKit
 
-class FeedbackItemsDataSource {
-    var sections: [FeedbackItemsSection] = [FeedbackItemsSection(items: [TopicItem()])]
+public class FeedbackItemsDataSource {
+    var sections: [FeedbackItemsSection] = [FeedbackItemsSection(items: [TopicItem(), BodyItem()])]
+
+    public init() {}
 
     func updateTopicItem(with topics: [TopicProtocol]) {
         guard let indexPath = indexPath(of: TopicItem.self), var item = topicItem else { return }
@@ -16,7 +18,7 @@ class FeedbackItemsDataSource {
 }
 
 extension FeedbackItemsDataSource {
-    private subscript(indexPath: IndexPath) -> FeedbackItemProtocol {
+    private subscript(indexPath: IndexPath) -> Any {
         get { return sections[indexPath.section][indexPath.item] }
         set { sections[indexPath.section][indexPath.item] = newValue }
     }
@@ -32,7 +34,18 @@ extension FeedbackItemsDataSource {
         }
     }
 
-    private func indexPath<Item:FeedbackItemProtocol>(of type: Item.Type) -> IndexPath? {
+    private var bodyItem: BodyItem? {
+        get {
+            guard let indexPath = indexPath(of: BodyItem.self) else { return .none }
+            return self[indexPath] as? BodyItem
+        }
+        set {
+            guard let indexPath = indexPath(of: BodyItem.self), let item = newValue else { return }
+            self[indexPath] = item
+        }
+    }
+
+    private func indexPath<Item>(of type: Item.Type) -> IndexPath? {
         for section in sections {
             guard let index = sections.index(where: { $0 === section }),
                   let subIndex = section.items.index(where: { $0 is Item })
@@ -44,7 +57,7 @@ extension FeedbackItemsDataSource {
 }
 
 extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
-    var selectedTopic: TopicProtocol? {
+    public var selectedTopic: TopicProtocol? {
         get { return topicItem?.selected }
         set {
             guard let indexPath = indexPath(of: TopicItem.self),
@@ -53,19 +66,28 @@ extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
             self[indexPath] = item
         }
     }
+    public var bodyText:      String? {
+        get { return bodyItem?.bodyText }
+        set {
+            guard let indexPath = indexPath(of: BodyItem.self),
+                  var item = bodyItem else { return }
+            item.bodyText = newValue
+            self[indexPath] = item
+        }
+    }
 }
 
 class FeedbackItemsSection {
-    var items: [FeedbackItemProtocol]
+    var items: [Any]
 
-    init(items: [FeedbackItemProtocol]) { self.items = items }
+    init(items: [Any]) { self.items = items }
 }
 
 extension FeedbackItemsSection: Collection {
     var startIndex: Int { return items.startIndex }
     var endIndex:   Int { return items.endIndex }
 
-    subscript(position: Int) -> FeedbackItemProtocol {
+    subscript(position: Int) -> Any {
         get { return items[position] }
         set { items[position] = newValue }
     }

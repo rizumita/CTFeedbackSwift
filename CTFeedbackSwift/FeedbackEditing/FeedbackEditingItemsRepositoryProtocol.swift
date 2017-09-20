@@ -7,4 +7,5 @@ import Foundation
 
 public protocol FeedbackEditingItemsRepositoryProtocol {
     var selectedTopic: TopicProtocol? { get set }
+    var bodyText:      String? { get set }
 }

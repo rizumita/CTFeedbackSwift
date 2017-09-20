@@ -5,29 +5,39 @@
 
 import Foundation
 
+public protocol FeedbackEditingEventProtocol {
+    func selectedTopicUpdated()
+}
+
 public protocol FeedbackEditingServiceProtocol {
-    func selectTopic(selector: TopicsSelectorProtocol)
+    func update(bodyText: String?)
+    func fetchTopics() -> [TopicProtocol]
+    func updateSelectedTopic(_ topic: TopicProtocol)
 }
 
 public class FeedbackEditingService {
-    let topicsRepository:       TopicsRepositoryProtocol
-    var editingItemsRepository: FeedbackEditingItemsRepositoryProtocol
+    let topicsRepository:            TopicsRepositoryProtocol
+    var editingItemsRepository:      FeedbackEditingItemsRepositoryProtocol
+    let feedbackEditingEventHandler: FeedbackEditingEventProtocol
 
     public init(topicsRepository: TopicsRepositoryProtocol,
-                editingItemsRepository: FeedbackEditingItemsRepositoryProtocol) {
+                editingItemsRepository: FeedbackEditingItemsRepositoryProtocol,
+                feedbackEditingEventHandler: FeedbackEditingEventProtocol) {
         self.topicsRepository = topicsRepository
         self.editingItemsRepository = editingItemsRepository
+        self.feedbackEditingEventHandler = feedbackEditingEventHandler
     }
 }
 
 extension FeedbackEditingService: FeedbackEditingServiceProtocol {
-    public func selectTopic(selector: TopicsSelectorProtocol) {
-        selector.selectTopics(topics: topicsRepository.topics, delegate: self)
+    public func update(bodyText: String?) {
+        editingItemsRepository.bodyText = bodyText
     }
-}
 
-extension FeedbackEditingService: TopicsDelegateProtocol {
-    public func topicWasSelected(_ topic: TopicProtocol) {
+    public func fetchTopics() -> [TopicProtocol] { return topicsRepository.topics }
+
+    public func updateSelectedTopic(_ topic: TopicProtocol) {
         editingItemsRepository.selectedTopic = topic
+        feedbackEditingEventHandler.selectedTopicUpdated()
     }
 }

@@ -6,7 +6,7 @@
 import Foundation
 
 public protocol TopicProtocol {
-    var title: String { get }
+    var title:          String { get }
     var localizedTitle: String { get }
 }
 
@@ -18,6 +18,6 @@ enum Topic: String {
 }
 
 extension Topic: TopicProtocol {
-    var title: String { return rawValue }
+    var title:          String { return rawValue }
     var localizedTitle: String { return CTLocalizedString(title) }
 }

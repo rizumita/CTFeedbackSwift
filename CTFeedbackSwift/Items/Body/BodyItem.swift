@@ -6,7 +6,5 @@
 import Foundation
 
 struct BodyItem {
-}
-
-extension BodyItem: FeedbackItemProtocol {
+    var bodyText: String?
 }

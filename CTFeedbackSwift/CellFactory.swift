@@ -6,56 +6,93 @@
 import UIKit
 
 protocol CellFactoryProtocol {
-    associatedtype Item: FeedbackItemProtocol
+    associatedtype Item
+    associatedtype Cell: UITableViewCell
+    associatedtype EventHandler
 
-    func cell(with item: Item,
-              tableView: UITableView,
-              at indexPath: IndexPath) -> UITableViewCell
+    static var reuseIdentifier: String { get }
+
+    static func configure(_ cell: Cell,
+                          with item: Item,
+                          for indexPath: IndexPath,
+                          eventHandler: EventHandler)
 }
 
-class CellFactorySet {
-    let factories = [
-        AnyCellFactory(TopicCellFactory()),
-        AnyCellFactory(BodyCellFactory())
-    ]
+extension CellFactoryProtocol {
+    static func suitable(for item: Any) -> Bool { return item is Item }
 
-    func cell(with item: FeedbackItemProtocol,
-              tableView: UITableView,
-              at indexPath: IndexPath) -> UITableViewCell {
-        for factory in factories {
-            if let cell = factory.cell(with: item, tableView: tableView, at: indexPath) {
-                return cell
-            }
-        }
-        fatalError()
-    }
-}
-
-class AnyCellFactory {
-    private let cellFunction: (FeedbackItemProtocol, UITableView, IndexPath) -> UITableViewCell?
-
-    init<Factory:CellFactoryProtocol>(_ cellFactory: Factory) {
-        cellFunction = { item, tableView, indexPath in
-            guard let _item = item as? Factory.Item else { return .none }
-            return cellFactory.cell(with: _item, tableView: tableView, at: indexPath)
-        }
-    }
-
-    func cell(with item: FeedbackItemProtocol,
-              tableView: UITableView,
-              at indexPath: IndexPath) -> UITableViewCell? {
-        return cellFunction(item, tableView, indexPath)
-    }
-}
-
-class BodyCellFactory: CellFactoryProtocol {
-    func cell(with item: BodyItem,
-              tableView: UITableView,
-              at indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TopicCell.reuseIdentifier,
-                                                       for: indexPath) as? TopicCell
-            else { fatalError() }
-
+    static func configure(_ cell: UITableViewCell,
+                          with item: Any,
+                          for indexPath: IndexPath,
+                          eventHandler: Any?) -> UITableViewCell? {
+        guard let cell = cell as? Cell,
+              let item = item as? Item,
+              let eventHandler = eventHandler as? EventHandler
+            else { return .none }
+        configure(cell, with: item, for: indexPath, eventHandler: eventHandler)
         return cell
     }
+}
+
+public class AnyCellFactory {
+    let cellType:        AnyClass
+    let reuseIdentifier: String
+    private let suitableClosure:      (Any) -> Bool
+    private let configureCellClosure: (UITableViewCell, Any, IndexPath, Any?) -> UITableViewCell?
+
+    init<Factory:CellFactoryProtocol>(_ cellFactory: Factory.Type) {
+        cellType = Factory.Cell.self
+        reuseIdentifier = cellFactory.reuseIdentifier
+        suitableClosure = cellFactory.suitable(for:)
+        configureCellClosure = cellFactory.configure(_:with:for:eventHandler:)
+    }
+
+    func suitable(for item: Any) -> Bool { return suitableClosure(item) }
+
+    func configure(_ cell: UITableViewCell,
+                   with item: Any,
+                   for indexPath: IndexPath,
+                   eventHandler: Any?) -> UITableViewCell? {
+        return configureCellClosure(cell, item, indexPath, eventHandler)
+    }
+
+    static func cellFactoryFilter() -> (Any, [AnyCellFactory]) -> AnyCellFactory? {
+        var cache = [String : AnyCellFactory]()
+        return { item, factories in
+            let itemType = String(describing: type(of: item))
+            if let factory = cache[itemType] {
+                return factory
+            } else if let factory = _cellFactoryFilter(item, factories) {
+                cache[itemType] = factory
+                return factory
+            } else {
+                return .none
+            }
+        }
+    }
+}
+
+extension UITableView {
+    func register(with cellFactory: AnyCellFactory) {
+        register(cellFactory.cellType, forCellReuseIdentifier: cellFactory.reuseIdentifier)
+    }
+
+    func dequeueCell(to item: Any,
+                     from cellFactories: [AnyCellFactory],
+                     for indexPath: IndexPath,
+                     filter: (Any, [AnyCellFactory]) -> AnyCellFactory? = _cellFactoryFilter,
+                     eventHandler: Any?) -> UITableViewCell {
+        guard let cellFactory = filter(item, cellFactories) else { fatalError() }
+        let cell = dequeueReusableCell(withIdentifier: cellFactory.reuseIdentifier, for: indexPath)
+        guard let configured = cellFactory.configure(cell,
+                                                     with: item,
+                                                     for: indexPath,
+                                                     eventHandler: eventHandler)
+            else { fatalError() }
+        return configured
+    }
+}
+
+let _cellFactoryFilter: (Any, [AnyCellFactory]) -> AnyCellFactory? = { item, factories in
+    return factories.first { $0.suitable(for: item) }
 }

@@ -7,14 +7,11 @@ import Foundation
 
 struct TopicItem {
     var title:      String? { return CTLocalizedString("CTFeedback.Topic") }
-    var topicTitle: String { return topics.first?.localizedTitle ?? "" }
+    var topicTitle: String { return selected?.localizedTitle ?? topics.first?.localizedTitle ?? "" }
     var topics:     [TopicProtocol] = []
     var selected:   TopicProtocol? {
         get { return _selected ?? topics.first }
         set { _selected = newValue }
     }
-    private var _selected:  TopicProtocol?
-}
-
-extension TopicItem: FeedbackItemProtocol {
+    private var _selected: TopicProtocol?
 }
