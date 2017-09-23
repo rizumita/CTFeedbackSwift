@@ -19,6 +19,8 @@ protocol CellFactoryProtocol {
 }
 
 extension CellFactoryProtocol {
+    static var reuseIdentifier: String { return String(describing: self) }
+
     static func suitable(for item: Any) -> Bool { return item is Item }
 
     static func configure(_ cell: UITableViewCell,

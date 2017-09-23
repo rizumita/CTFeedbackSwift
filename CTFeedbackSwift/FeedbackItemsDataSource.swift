@@ -11,7 +11,7 @@ public class FeedbackItemsDataSource {
         FeedbackItemsSection(title: CTLocalizedString("CTFeedback.AdditionalInfo"),
                              items: [AttachmentItem()]),
         FeedbackItemsSection(title: CTLocalizedString("CTFeedback.DeviceInfo"),
-                             items: [DeviceNameItem()])
+                             items: [DeviceNameItem(), SystemVersionItem()])
     ]
 
     public init(topics: [TopicProtocol] = TopicItem.defaultTopics) {

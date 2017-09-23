@@ -17,7 +17,8 @@ public class FeedbackViewController: UITableViewController {
     private let cellFactories = [AnyCellFactory(TopicCell.self),
                                  AnyCellFactory(BodyCell.self),
                                  AnyCellFactory(AttachmentCell.self),
-                                 AnyCellFactory(DeviceNameCell.self)]
+                                 AnyCellFactory(DeviceNameCell.self),
+                                 AnyCellFactory(SystemVersionCell.self)]
 
     private lazy var feedbackEditingService: FeedbackEditingServiceProtocol = {
         return FeedbackEditingService(topicsRepository: configuration.dataSource,

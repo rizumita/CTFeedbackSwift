@@ -19,7 +19,9 @@
 		6A4638BE1F61355600CD41BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A4638BD1F61355600CD41BC /* Assets.xcassets */; };
 		6A4638C11F61355600CD41BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4638BF1F61355600CD41BC /* LaunchScreen.storyboard */; };
 		CB8760EE90BE425CFCEF1723 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876079548C5672BB9679E6 /* Functions.swift */; };
+		CB8761D87CEC3E69E99F463C /* SystemVersionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876820B377EF65BB62A129 /* SystemVersionItem.swift */; };
 		CB87621FE97A70D33FF5F683 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8766D41BCDC01707AC5DC5 /* Topic.swift */; };
+		CB87623B829B24D52257B2AC /* SystemVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */; };
 		CB8764BDCE8FDB9B7DE9D83B /* FeedbackItemsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B39AE917BBEC8B9B8EE /* FeedbackItemsDataSource.swift */; };
 		CB8764EBB5FD49C2E7128B62 /* FeedbackEditingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */; };
 		CB876598F32E868D4AD84EF0 /* DrawUpPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */; };
@@ -96,6 +98,8 @@
 		CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameItem.swift; sourceTree = "<group>"; };
 		CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemVersionCell.swift; sourceTree = "<group>"; };
+		CB876820B377EF65BB62A129 /* SystemVersionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemVersionItem.swift; sourceTree = "<group>"; };
 		CB87687D32131ECD2FD7476E /* AttachmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
 		CB87689F225BC1B1E073AB2C /* FeedbackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackConfiguration.swift; sourceTree = "<group>"; };
 		CB876A2CE6558D632BE56923 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
@@ -258,6 +262,15 @@
 			path = FeedbackEditing;
 			sourceTree = "<group>";
 		};
+		CB876A573BD3ADA8689E4923 /* SystemVersion */ = {
+			isa = PBXGroup;
+			children = (
+				CB876820B377EF65BB62A129 /* SystemVersionItem.swift */,
+				CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */,
+			);
+			path = SystemVersion;
+			sourceTree = "<group>";
+		};
 		CB876D38D3B77164C9F731FD /* Items */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 				CB8762AED683F44694770F5A /* Topic */,
 				CB87645C930CC8206C2F308A /* Attachment */,
 				CB87600ADEA1D38FA54F27AB /* DeviceName */,
+				CB876A573BD3ADA8689E4923 /* SystemVersion */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -436,6 +450,8 @@
 				CB87694AB34370FBFA6C3811 /* Media.swift in Sources */,
 				CB8769D057BB57D34D20C249 /* DeviceNameItem.swift in Sources */,
 				CB876ECC17B3802605587A59 /* DeviceNameCell.swift in Sources */,
+				CB8761D87CEC3E69E99F463C /* SystemVersionItem.swift in Sources */,
+				CB87623B829B24D52257B2AC /* SystemVersionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
