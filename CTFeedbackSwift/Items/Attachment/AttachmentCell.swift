@@ -77,8 +77,6 @@ extension AttachmentCell {
 }
 
 extension AttachmentCell: CellFactoryProtocol {
-    static let reuseIdentifier: String = "AttachmentCell"
-
     class func configure(_ cell: AttachmentCell,
                          with item: AttachmentItem,
                          for indexPath: IndexPath,

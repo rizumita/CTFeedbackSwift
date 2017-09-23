@@ -14,8 +14,6 @@ final public class TopicCell: UITableViewCell {
 }
 
 extension TopicCell: CellFactoryProtocol {
-    public static var reuseIdentifier: String { return "TopicCell" }
-
     static func configure(_ cell: TopicCell,
                           with item: TopicItem,
                           for indexPath: IndexPath,

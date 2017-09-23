@@ -58,8 +58,6 @@ extension BodyCell: UITextViewDelegate {
 }
 
 extension BodyCell: CellFactoryProtocol {
-    static let reuseIdentifier: String = "BodyCell"
-
     static func configure(_ cell: BodyCell,
                           with item: BodyItem,
                           for indexPath: IndexPath,
