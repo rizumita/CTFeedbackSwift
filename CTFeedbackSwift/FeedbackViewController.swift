@@ -8,27 +8,26 @@
 
 import UIKit
 import Dispatch
+import MobileCoreServices
 
 public class FeedbackViewController: UITableViewController {
-    public var configuration: FeedbackConfiguration {
+    public var  configuration: FeedbackConfiguration {
         didSet { updateDataSource(configuration: configuration) }
     }
+    private let cellFactories = [AnyCellFactory(TopicCell.self),
+                                 AnyCellFactory(BodyCell.self),
+                                 AnyCellFactory(AttachmentCell.self)]
 
-    private var feedbackEditingService: FeedbackEditingServiceProtocol
-
-    private func updateDataSource(configuration: FeedbackConfiguration) {
-        configuration.dataSource.updateTopicItem(with: configuration.topics)
-        tableView.reloadData()
-    }
+    private lazy var feedbackEditingService: FeedbackEditingServiceProtocol = {
+        return FeedbackEditingService(topicsRepository: configuration.dataSource,
+                                      editingItemsRepository: configuration.dataSource,
+                                      feedbackEditingEventHandler: self)
+    }()
 
     public init(configuration: FeedbackConfiguration) {
         self.configuration = configuration
-        let handler = FeedbackEditingEventHandler()
-        self.feedbackEditingService = FeedbackEditingService(topicsRepository: configuration,
-                                                             editingItemsRepository: configuration.dataSource,
-                                                             feedbackEditingEventHandler: handler)
+
         super.init(style: .grouped)
-        handler.controller = self
     }
 
     public required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -39,7 +38,7 @@ public class FeedbackViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
 
-        configuration.cellFactories.forEach(tableView.register(with:))
+        cellFactories.forEach(tableView.register(with:))
         updateDataSource(configuration: configuration)
     }
 
@@ -65,7 +64,7 @@ extension FeedbackViewController {
                                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = configuration.dataSource.sections[indexPath.section][indexPath.row]
         return tableView.dequeueCell(to: item,
-                                     from: configuration.cellFactories,
+                                     from: cellFactories,
                                      for: indexPath,
                                      eventHandler: self)
     }
@@ -77,10 +76,18 @@ extension FeedbackViewController {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = configuration.dataSource.sections[indexPath.section][indexPath.row]
         switch item {
-        case let item as TopicItem:
+        case _ as TopicItem:
             showTopicsView()
+        case _ as AttachmentItem:
+            showAttachmentView()
         default: ()
         }
+    }
+}
+
+extension FeedbackViewController: FeedbackEditingEventProtocol {
+    public func updated(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -104,7 +111,15 @@ extension FeedbackViewController: BodyCellEventProtocol {
     }
 }
 
+extension FeedbackViewController: AttachmentCellEventProtocol {
+    func showImage(of item: AttachmentItem) {}
+}
+
 extension FeedbackViewController {
+    private func updateDataSource(configuration: FeedbackConfiguration) {
+        tableView.reloadData()
+    }
+
     private func showTopicsView() {
         let controller = TopicsViewController(service: feedbackEditingService)
         controller.modalPresentationStyle = .custom
@@ -113,5 +128,39 @@ extension FeedbackViewController {
         DispatchQueue.main.async {
             self.present(controller, animated: true)
         }
+    }
+
+    private func showAttachmentView() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
+        imagePickerController.allowsEditing = false
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
+    }
+}
+
+extension FeedbackViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [String : Any]) {
+        switch getMediaFromImagePickerInfo(info) {
+        case let media?:
+            feedbackEditingService.update(attachmentMedia: media)
+            dismiss(animated: true)
+        case _:
+            dismiss(animated: true)
+            let title           = CTLocalizedString("CTFeedback.UnknownError")
+            let alertController = UIAlertController(title: title,
+                                                    message: .none,
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.OK"),
+                                                    style: .default))
+            present(alertController, animated: true)
+        }
+
+    }
+
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }

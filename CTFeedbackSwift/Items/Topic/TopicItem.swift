@@ -5,7 +5,14 @@
 
 import Foundation
 
-struct TopicItem {
+public struct TopicItem {
+    public static var defaultTopics:        [TopicProtocol] {
+        return [Topic.question,
+                Topic.request,
+                Topic.bugReport,
+                Topic.other]
+    }
+
     var title:      String? { return CTLocalizedString("CTFeedback.Topic") }
     var topicTitle: String { return selected?.localizedTitle ?? topics.first?.localizedTitle ?? "" }
     var topics:     [TopicProtocol] = []

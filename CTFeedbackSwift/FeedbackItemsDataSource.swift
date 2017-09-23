@@ -6,14 +6,22 @@
 import UIKit
 
 public class FeedbackItemsDataSource {
-    var sections: [FeedbackItemsSection] = [FeedbackItemsSection(items: [TopicItem(), BodyItem()])]
+    var sections: [FeedbackItemsSection] = [FeedbackItemsSection(items: [TopicItem(), BodyItem()]),
+                                            FeedbackItemsSection(items: [AttachmentItem()])]
 
-    public init() {}
+    public init(topics: [TopicProtocol] = TopicItem.defaultTopics) {
+        self.topics = topics
+    }
+}
 
-    func updateTopicItem(with topics: [TopicProtocol]) {
-        guard let indexPath = indexPath(of: TopicItem.self), var item = topicItem else { return }
-        item.topics = topics
-        self[indexPath] = item
+extension FeedbackItemsDataSource: TopicsRepositoryProtocol {
+    public var topics: [TopicProtocol] {
+        get { return item(of: TopicItem.self)?.topics ?? [] }
+        set {
+            guard var item = item(of: TopicItem.self) else { return }
+            item.topics = newValue
+            set(item: item)
+        }
     }
 }
 
@@ -23,29 +31,44 @@ extension FeedbackItemsDataSource {
         set { sections[indexPath.section][indexPath.item] = newValue }
     }
 
-    private var topicItem: TopicItem? {
-        get {
-            guard let indexPath = indexPath(of: TopicItem.self) else { return .none }
-            return self[indexPath] as? TopicItem
-        }
+    private func item<Item>(of type: Item.Type) -> Item? {
+        guard let indexPath = indexPath(of: type) else { return .none }
+        return self[indexPath] as? Item
+    }
+
+    private func set<Item>(item: Item) {
+        guard let indexPath = indexPath(of: Item.self) else { return }
+        self[indexPath] = item
+    }
+}
+
+extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
+    public var selectedTopic: TopicProtocol? {
+        get { return item(of: TopicItem.self)?.selected }
         set {
-            guard let indexPath = indexPath(of: TopicItem.self), let item = newValue else { return }
-            self[indexPath] = item
+            guard var item = item(of: TopicItem.self) else { return }
+            item.selected = newValue
+            set(item: item)
+        }
+    }
+    public var bodyText:      String? {
+        get { return item(of: BodyItem.self)?.bodyText }
+        set {
+            guard var item = item(of: BodyItem.self) else { return }
+            item.bodyText = newValue
+            set(item: item)
+        }
+    }
+    public var attachmentMedia: Media? {
+        get { return item(of: AttachmentItem.self)?.media }
+        set {
+            guard var item = item(of: AttachmentItem.self) else { return }
+            item.media = newValue
+            set(item: item)
         }
     }
 
-    private var bodyItem: BodyItem? {
-        get {
-            guard let indexPath = indexPath(of: BodyItem.self) else { return .none }
-            return self[indexPath] as? BodyItem
-        }
-        set {
-            guard let indexPath = indexPath(of: BodyItem.self), let item = newValue else { return }
-            self[indexPath] = item
-        }
-    }
-
-    private func indexPath<Item>(of type: Item.Type) -> IndexPath? {
+    public func indexPath<Item>(of type: Item.Type) -> IndexPath? {
         for section in sections {
             guard let index = sections.index(where: { $0 === section }),
                   let subIndex = section.items.index(where: { $0 is Item })
@@ -53,27 +76,6 @@ extension FeedbackItemsDataSource {
             return IndexPath(item: subIndex, section: index)
         }
         return .none
-    }
-}
-
-extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
-    public var selectedTopic: TopicProtocol? {
-        get { return topicItem?.selected }
-        set {
-            guard let indexPath = indexPath(of: TopicItem.self),
-                  var item = topicItem else { return }
-            item.selected = newValue
-            self[indexPath] = item
-        }
-    }
-    public var bodyText:      String? {
-        get { return bodyItem?.bodyText }
-        set {
-            guard let indexPath = indexPath(of: BodyItem.self),
-                  var item = bodyItem else { return }
-            item.bodyText = newValue
-            self[indexPath] = item
-        }
     }
 }
 

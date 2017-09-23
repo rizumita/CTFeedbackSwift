@@ -8,4 +8,6 @@ import Foundation
 public protocol FeedbackEditingItemsRepositoryProtocol {
     var selectedTopic: TopicProtocol? { get set }
     var bodyText:      String? { get set }
+    var attachmentMedia: Media? { get set }
+    func indexPath<Item>(of type: Item.Type) -> IndexPath?
 }

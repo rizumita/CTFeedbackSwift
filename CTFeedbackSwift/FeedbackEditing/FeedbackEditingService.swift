@@ -6,13 +6,14 @@
 import Foundation
 
 public protocol FeedbackEditingEventProtocol {
-    func selectedTopicUpdated()
+    func updated(at indexPath: IndexPath)
 }
 
 public protocol FeedbackEditingServiceProtocol {
     func update(bodyText: String?)
     func fetchTopics() -> [TopicProtocol]
-    func updateSelectedTopic(_ topic: TopicProtocol)
+    func update(selectedTopic: TopicProtocol)
+    func update(attachmentMedia: Media)
 }
 
 public class FeedbackEditingService {
@@ -36,8 +37,17 @@ extension FeedbackEditingService: FeedbackEditingServiceProtocol {
 
     public func fetchTopics() -> [TopicProtocol] { return topicsRepository.topics }
 
-    public func updateSelectedTopic(_ topic: TopicProtocol) {
-        editingItemsRepository.selectedTopic = topic
-        feedbackEditingEventHandler.selectedTopicUpdated()
+    public func update(selectedTopic: TopicProtocol) {
+        editingItemsRepository.selectedTopic = selectedTopic
+        guard let indexPath = editingItemsRepository.indexPath(of: TopicItem.self)
+            else { return }
+        feedbackEditingEventHandler.updated(at: indexPath)
+    }
+
+    public func update(attachmentMedia: Media) {
+        editingItemsRepository.attachmentMedia = attachmentMedia
+        guard let indexPath = editingItemsRepository.indexPath(of: AttachmentItem.self)
+            else { return }
+        feedbackEditingEventHandler.updated(at: indexPath)
     }
 }

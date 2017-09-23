@@ -6,5 +6,12 @@
 import UIKit
 
 struct AttachmentItem {
-    var image: UIImage?
+    var media: Media?
+    var image: UIImage? {
+        switch media {
+        case .image(let i)?:    return i
+        case .movie(let i, _)?: return i
+        default:                return .none
+        }
+    }
 }

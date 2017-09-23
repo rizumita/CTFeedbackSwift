@@ -54,7 +54,7 @@ extension TopicsViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = topics[indexPath.row]
-        feedbackEditingService.updateSelectedTopic(topic)
+        feedbackEditingService.update(selectedTopic: topic)
         dismiss(animated: true)
     }
 }
