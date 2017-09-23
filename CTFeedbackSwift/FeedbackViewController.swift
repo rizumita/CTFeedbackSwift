@@ -40,6 +40,8 @@ public class FeedbackViewController: UITableViewController {
 
         cellFactories.forEach(tableView.register(with:))
         updateDataSource(configuration: configuration)
+
+        title = CTLocalizedString("CTFeedback.FeedbackViewTitle")
     }
 
     public override func didReceiveMemoryWarning() {
@@ -79,7 +81,7 @@ extension FeedbackViewController {
         case _ as TopicItem:
             showTopicsView()
         case _ as AttachmentItem:
-            showAttachmentView()
+            showAttachmentViewOrAlert()
         default: ()
         }
     }
@@ -130,13 +132,37 @@ extension FeedbackViewController {
         }
     }
 
-    private func showAttachmentView() {
+    private func showAttachmentViewOrAlert() {
+        if feedbackEditingService.hasAttachedMedia {
+            showAttachmentActionSheet()
+        } else {
+            showImagePicker()
+        }
+    }
+
+    private func showImagePicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
         imagePickerController.allowsEditing = false
         imagePickerController.delegate = self
         present(imagePickerController, animated: true)
+    }
+
+    private func showAttachmentActionSheet() {
+        let alertController = UIAlertController(title: .none,
+                                                message: .none,
+                                                preferredStyle: .actionSheet)
+        let actions = [
+            UIAlertAction(title: CTLocalizedString("CTFeedback.Delete"), style: .destructive) { _ in
+                self.feedbackEditingService.update(attachmentMedia: .none)
+            },
+            UIAlertAction(title: CTLocalizedString("CTFeedback.Replace"),
+                          style: .default) { _ in self.showImagePicker() },
+            UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"), style: .cancel)
+        ]
+        actions.forEach(alertController.addAction)
+        present(alertController, animated: true)
     }
 }
 

@@ -5,7 +5,18 @@
 
 import UIKit
 
-public enum Media {
+public enum Media: Equatable {
     case image(UIImage)
     case movie(UIImage, URL)
+
+    public static func ==(lhs: Media, rhs: Media) -> Bool {
+        switch (lhs, rhs) {
+        case (.image(let lImage), .image(let rImage)):
+            return lImage == rImage
+        case (.movie(let lImage, let lUrl), .movie(let rImage, let rUrl)):
+            return lUrl == rUrl
+        default:
+            return false
+        }
+    }
 }

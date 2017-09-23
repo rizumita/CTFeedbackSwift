@@ -6,8 +6,9 @@
 import UIKit
 
 struct AttachmentItem {
-    var media: Media?
-    var image: UIImage? {
+    var attached: Bool { return media != .none }
+    var media:    Media?
+    var image:    UIImage? {
         switch media {
         case .image(let i)?:    return i
         case .movie(let i, _)?: return i

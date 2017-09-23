@@ -10,10 +10,11 @@ public protocol FeedbackEditingEventProtocol {
 }
 
 public protocol FeedbackEditingServiceProtocol {
+    var hasAttachedMedia: Bool { get }
     func update(bodyText: String?)
     func fetchTopics() -> [TopicProtocol]
     func update(selectedTopic: TopicProtocol)
-    func update(attachmentMedia: Media)
+    func update(attachmentMedia: Media?)
 }
 
 public class FeedbackEditingService {
@@ -31,6 +32,8 @@ public class FeedbackEditingService {
 }
 
 extension FeedbackEditingService: FeedbackEditingServiceProtocol {
+    public var hasAttachedMedia: Bool { return editingItemsRepository.attachmentMedia != .none }
+
     public func update(bodyText: String?) {
         editingItemsRepository.bodyText = bodyText
     }
@@ -44,7 +47,7 @@ extension FeedbackEditingService: FeedbackEditingServiceProtocol {
         feedbackEditingEventHandler.updated(at: indexPath)
     }
 
-    public func update(attachmentMedia: Media) {
+    public func update(attachmentMedia: Media?) {
         editingItemsRepository.attachmentMedia = attachmentMedia
         guard let indexPath = editingItemsRepository.indexPath(of: AttachmentItem.self)
             else { return }
