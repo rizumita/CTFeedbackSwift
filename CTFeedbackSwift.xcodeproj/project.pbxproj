@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A23EBA51F77132C00EE3D53 /* PlatformNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A23EBA41F77101B00EE3D53 /* PlatformNames.plist */; };
 		6A36AC771F6C7B9100E77890 /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36AC761F6C7B9100E77890 /* BodyCell.swift */; };
 		6A36AC781F6E0AB200E77890 /* CTFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */; };
 		6A36AC791F6E0AB200E77890 /* CTFeedback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,12 +32,14 @@
 		CB87694AB34370FBFA6C3811 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D4DA34A167014FF778A /* Media.swift */; };
 		CB87694E738899EA4DFB81B2 /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87687D32131ECD2FD7476E /* AttachmentCell.swift */; };
 		CB876950021E6E3F9A40B2B4 /* FeedbackEditingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */; };
+		CB8769D057BB57D34D20C249 /* DeviceNameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */; };
 		CB8769E2E7440B476664D448 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876A2CE6558D632BE56923 /* Bundle+Extensions.swift */; };
 		CB876A8773582B8D902D1E8A /* AttachmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */; };
 		CB876B2BC3F438D615AC9730 /* TopicsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */; };
 		CB876B6C122002233A39B8EF /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8760E3FF2F5E04A43C2260 /* TopicsViewController.swift */; };
 		CB876CF15E1E6803DF627C52 /* BodyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B8A154E1D66B4E2AD39 /* BodyItem.swift */; };
 		CB876DB4B3F11CBD2DC473BE /* FeedbackEditingItemsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876BE78C191E9DC672EE00 /* FeedbackEditingItemsRepositoryProtocol.swift */; };
+		CB876ECC17B3802605587A59 /* DeviceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A23EBA41F77101B00EE3D53 /* PlatformNames.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PlatformNames.plist; sourceTree = "<group>"; };
 		6A36AC761F6C7B9100E77890 /* BodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
 		6A46387B1F6130D600CD41BC /* CTFeedback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CTFeedback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A46387E1F6130D600CD41BC /* CTFeedbackSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTFeedbackSwift.h; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		CB87614908796C90A845FE02 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		CB8761CC5DA201BD573FB5C8 /* CellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
 		CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingServiceTests.swift; sourceTree = "<group>"; };
+		CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameItem.swift; sourceTree = "<group>"; };
 		CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		CB87687D32131ECD2FD7476E /* AttachmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
@@ -102,6 +107,7 @@
 		CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingService.swift; sourceTree = "<group>"; };
 		CB876CD556B91BB629E853CD /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		CB876D4DA34A167014FF778A /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameCell.swift; sourceTree = "<group>"; };
 		CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentItem.swift; sourceTree = "<group>"; };
 		CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A23EBA31F77100700EE3D53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A23EBA41F77101B00EE3D53 /* PlatformNames.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		6A4638711F6130D600CD41BC = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +170,7 @@
 		6A46387D1F6130D600CD41BC /* CTFeedbackSwift */ = {
 			isa = PBXGroup;
 			children = (
+				6A23EBA31F77100700EE3D53 /* Resources */,
 				6A46387E1F6130D600CD41BC /* CTFeedbackSwift.h */,
 				6A46387F1F6130D600CD41BC /* Info.plist */,
 				CB876CD556B91BB629E853CD /* FeedbackViewController.swift */,
@@ -194,6 +209,15 @@
 				6A4638C21F61355600CD41BC /* Info.plist */,
 			);
 			path = CTFeedbackDemo;
+			sourceTree = "<group>";
+		};
+		CB87600ADEA1D38FA54F27AB /* DeviceName */ = {
+			isa = PBXGroup;
+			children = (
+				CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */,
+				CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */,
+			);
+			path = DeviceName;
 			sourceTree = "<group>";
 		};
 		CB8762AED683F44694770F5A /* Topic */ = {
@@ -240,6 +264,7 @@
 				CB8766B59C22A4BF5E078B2B /* Body */,
 				CB8762AED683F44694770F5A /* Topic */,
 				CB87645C930CC8206C2F308A /* Attachment */,
+				CB87600ADEA1D38FA54F27AB /* DeviceName */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -362,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A23EBA51F77132C00EE3D53 /* PlatformNames.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +434,8 @@
 				CB876A8773582B8D902D1E8A /* AttachmentItem.swift in Sources */,
 				CB87694E738899EA4DFB81B2 /* AttachmentCell.swift in Sources */,
 				CB87694AB34370FBFA6C3811 /* Media.swift in Sources */,
+				CB8769D057BB57D34D20C249 /* DeviceNameItem.swift in Sources */,
+				CB876ECC17B3802605587A59 /* DeviceNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

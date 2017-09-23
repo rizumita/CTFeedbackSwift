@@ -16,4 +16,14 @@ extension Bundle {
         _feedbackBundle = bundle
         return bundle
     }
+
+    static var platformNamesPlistPath: String? {
+        let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle]
+        for bundle in bundles {
+            guard let path = bundle.path(forResource: "PlatformNames", ofType: "plist")
+                else { continue}
+            return path
+        }
+        return .none
+    }
 }
