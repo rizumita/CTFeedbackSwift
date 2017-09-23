@@ -53,22 +53,27 @@ public class FeedbackViewController: UITableViewController {
 extension FeedbackViewController {
     // MARK: - UITableViewDataSource
 
-    public override func numberOfSections(in tableView: UITableView) -> Int {
+    override public func numberOfSections(in tableView: UITableView) -> Int {
         return configuration.dataSource.sections.count
     }
 
-    public override func tableView(_ tableView: UITableView,
+    override public func tableView(_ tableView: UITableView,
                                    numberOfRowsInSection section: Int) -> Int {
         return configuration.dataSource.sections[section].count
     }
 
-    public override func tableView(_ tableView: UITableView,
+    override public func tableView(_ tableView: UITableView,
                                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = configuration.dataSource.sections[indexPath.section][indexPath.row]
         return tableView.dequeueCell(to: item,
                                      from: cellFactories,
                                      for: indexPath,
                                      eventHandler: self)
+    }
+
+    override public func tableView(_ tableView: UITableView,
+                                   titleForHeaderInSection section: Int) -> String? {
+        return configuration.dataSource.sections[section].title
     }
 }
 

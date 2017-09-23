@@ -6,8 +6,11 @@
 import UIKit
 
 public class FeedbackItemsDataSource {
-    var sections: [FeedbackItemsSection] = [FeedbackItemsSection(items: [TopicItem(), BodyItem()]),
-                                            FeedbackItemsSection(items: [AttachmentItem()])]
+    var sections: [FeedbackItemsSection] = [
+        FeedbackItemsSection(items: [TopicItem(), BodyItem()]),
+        FeedbackItemsSection(title: CTLocalizedString("CTFeedback.AdditionalInfo"),
+                             items: [AttachmentItem()]),
+    ]
 
     public init(topics: [TopicProtocol] = TopicItem.defaultTopics) {
         self.topics = topics
@@ -43,7 +46,7 @@ extension FeedbackItemsDataSource {
 }
 
 extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
-    public var selectedTopic: TopicProtocol? {
+    public var selectedTopic:   TopicProtocol? {
         get { return item(of: TopicItem.self)?.selected }
         set {
             guard var item = item(of: TopicItem.self) else { return }
@@ -51,7 +54,7 @@ extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
             set(item: item)
         }
     }
-    public var bodyText:      String? {
+    public var bodyText:        String? {
         get { return item(of: BodyItem.self)?.bodyText }
         set {
             guard var item = item(of: BodyItem.self) else { return }
@@ -80,9 +83,13 @@ extension FeedbackItemsDataSource: FeedbackEditingItemsRepositoryProtocol {
 }
 
 class FeedbackItemsSection {
+    let title: String?
     var items: [Any]
 
-    init(items: [Any]) { self.items = items }
+    init(title: String? = .none, items: [Any]) {
+        self.title = title
+        self.items = items
+    }
 }
 
 extension FeedbackItemsSection: Collection {
