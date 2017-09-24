@@ -66,6 +66,12 @@ public class FeedbackViewController: UITableViewController {
         configureLeftBarButtonItem()
     }
 
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        popNavigationBarHiddenState?({ self.navigationController?.isNavigationBarHidden = $0 })
+    }
+
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
