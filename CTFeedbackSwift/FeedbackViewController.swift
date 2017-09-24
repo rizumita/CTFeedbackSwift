@@ -14,7 +14,8 @@ public class FeedbackViewController: UITableViewController {
     public var  configuration: FeedbackConfiguration {
         didSet { updateDataSource(configuration: configuration) }
     }
-    private let cellFactories = [AnyCellFactory(TopicCell.self),
+    private let cellFactories = [AnyCellFactory(UserEmailCell.self),
+                                 AnyCellFactory(TopicCell.self),
                                  AnyCellFactory(BodyCell.self),
                                  AnyCellFactory(AttachmentCell.self),
                                  AnyCellFactory(DeviceNameCell.self),
@@ -28,6 +29,8 @@ public class FeedbackViewController: UITableViewController {
                                       editingItemsRepository: configuration.dataSource,
                                       feedbackEditingEventHandler: self)
     }()
+
+    private var popNavigationBarHiddenState: (((Bool) -> ()) -> ())?
 
     public init(configuration: FeedbackConfiguration) {
         self.configuration = configuration
@@ -47,6 +50,20 @@ public class FeedbackViewController: UITableViewController {
         updateDataSource(configuration: configuration)
 
         title = CTLocalizedString("CTFeedback.FeedbackViewTitle")
+        navigationItem
+            .rightBarButtonItem = UIBarButtonItem(title: CTLocalizedString("CTFeedback.Mail"),
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(mailButtonTapped(_:)))
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        popNavigationBarHiddenState = push(navigationController?.isNavigationBarHidden)
+        navigationController?.isNavigationBarHidden = false
+
+        configureLeftBarButtonItem()
     }
 
     public override func didReceiveMemoryWarning() {
@@ -59,17 +76,17 @@ extension FeedbackViewController {
     // MARK: - UITableViewDataSource
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
-        return configuration.dataSource.sections.count
+        return configuration.dataSource.numberOfSections
     }
 
     override public func tableView(_ tableView: UITableView,
                                    numberOfRowsInSection section: Int) -> Int {
-        return configuration.dataSource.sections[section].count
+        return configuration.dataSource.section(at: section).count
     }
 
     override public func tableView(_ tableView: UITableView,
                                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = configuration.dataSource.sections[indexPath.section][indexPath.row]
+        let item = configuration.dataSource.section(at: indexPath.section)[indexPath.row]
         return tableView.dequeueCell(to: item,
                                      from: cellFactories,
                                      for: indexPath,
@@ -78,7 +95,7 @@ extension FeedbackViewController {
 
     override public func tableView(_ tableView: UITableView,
                                    titleForHeaderInSection section: Int) -> String? {
-        return configuration.dataSource.sections[section].title
+        return configuration.dataSource.section(at: section).title
     }
 }
 
@@ -86,14 +103,15 @@ extension FeedbackViewController {
     // UITableViewDelegate
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = configuration.dataSource.sections[indexPath.section][indexPath.row]
+        let item = configuration.dataSource.section(at: indexPath.section)[indexPath.row]
         switch item {
         case _ as TopicItem:
             showTopicsView()
         case _ as AttachmentItem:
-            showAttachmentViewOrAlert()
+            showAttachmentActionSheet()
         default: ()
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -112,6 +130,10 @@ extension FeedbackViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
+extension FeedbackViewController: UserEmailCellEventProtocol {
+    func userEmailTextDidChange(_ text: String?) {}
+}
+
 extension FeedbackViewController: BodyCellEventProtocol {
     func bodyCellHeightChanged() {
         tableView.beginUpdates()
@@ -128,6 +150,23 @@ extension FeedbackViewController: AttachmentCellEventProtocol {
 }
 
 extension FeedbackViewController {
+    private func configureLeftBarButtonItem() {
+        if let navigationController = navigationController {
+            if navigationController.viewControllers[0] === self {
+                navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                                   target: self,
+                                                                   action: #selector(cancelButtonTapped(_:)))
+            } else {
+                // Keep the standard back button instead of "Cancel"
+                navigationItem.leftBarButtonItem = .none
+            }
+        } else {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                               target: self,
+                                                               action: #selector(cancelButtonTapped(_:)))
+        }
+    }
+
     private func updateDataSource(configuration: FeedbackConfiguration) {
         tableView.reloadData()
     }
@@ -142,37 +181,64 @@ extension FeedbackViewController {
         }
     }
 
-    private func showAttachmentViewOrAlert() {
-        if feedbackEditingService.hasAttachedMedia {
-            showAttachmentActionSheet()
+    @objc func cancelButtonTapped(_ sender: Any) {
+        if let navigationController = navigationController {
+            if navigationController.viewControllers.first === self {
+                // Can't pop, just dismiss
+                dismiss(animated: true)
+            } else {
+                // Can be popped
+                navigationController.popViewController(animated: true)
+            }
         } else {
-            showImagePicker()
+            dismiss(animated: true)
         }
     }
 
-    private func showImagePicker() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
-        imagePickerController.allowsEditing = false
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true)
+    @objc func mailButtonTapped(_ sender: Any) {
+
     }
 
     private func showAttachmentActionSheet() {
         let alertController = UIAlertController(title: .none,
                                                 message: .none,
                                                 preferredStyle: .actionSheet)
-        let actions = [
-            UIAlertAction(title: CTLocalizedString("CTFeedback.Delete"), style: .destructive) { _ in
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(UIAlertAction(title: CTLocalizedString(
+                "CTFeedback.PhotoLibrary"),
+                                                    style: .default) { _ in
+                self.showImagePicker(sourceType: .photoLibrary)
+            })
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Camera"),
+                                                    style: .default) { _ in
+                self.showImagePicker(sourceType: .camera)
+            })
+        }
+        if feedbackEditingService.hasAttachedMedia {
+            alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Delete"),
+                                                    style: .destructive) { _ in
                 self.feedbackEditingService.update(attachmentMedia: .none)
-            },
-            UIAlertAction(title: CTLocalizedString("CTFeedback.Replace"),
-                          style: .default) { _ in self.showImagePicker() },
-            UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"), style: .cancel)
-        ]
-        actions.forEach(alertController.addAction)
+            })
+        }
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"),
+                                                style: .cancel))
         present(alertController, animated: true)
+    }
+
+    private func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .formSheet
+        let presentation = imagePicker.popoverPresentationController
+        presentation?.permittedArrowDirections = .any
+        presentation?.sourceView = view
+        presentation?.sourceRect = view.frame
+        present(imagePicker, animated: true)
     }
 }
 

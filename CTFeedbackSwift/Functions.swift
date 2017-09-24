@@ -37,8 +37,13 @@ func getMediaFromURL(_ url: URL) -> Media? {
     let asset     = AVURLAsset(url: url)
     let generator = AVAssetImageGenerator(asset: asset)
     generator.appliesPreferredTrackTransform = true
-    let time    = CMTimeMake(1, 1)
+    let time = CMTimeMake(1, 1)
     guard let cgImage = try? generator.copyCGImage(at: time, actualTime: .none)
         else { return .none }
     return .movie(UIImage(cgImage: cgImage), url)
+}
+
+func push<Item>(_ item: Item?) -> (((Item) -> ()) -> ())? {
+    guard let item = item else { return .none }
+    return { closure in closure(item) }
 }

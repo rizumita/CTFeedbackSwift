@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct DeviceNameItem {
+public struct DeviceNameItem: FeedbackItemProtocol {
     var deviceName: String {
         guard let path = Bundle.platformNamesPlistPath,
               let dictionary = NSDictionary(contentsOfFile: path) as? [String : String]
@@ -21,7 +21,9 @@ public struct DeviceNameItem {
         sysctl(&mib, 2, .none, &len, .none, 0)
         var machine = [CChar](repeating: 0, count: Int(len))
         sysctl(&mib, 2, &machine, &len, .none, 0)
-        let result = String(cString: machine) ?? ""
+        let result = String(cString: machine)
         return result
     }
+
+    public let isHidden: Bool = false
 }

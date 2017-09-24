@@ -32,25 +32,33 @@ public class FeedbackEditingService {
 }
 
 extension FeedbackEditingService: FeedbackEditingServiceProtocol {
-    public var hasAttachedMedia: Bool { return editingItemsRepository.attachmentMedia != .none }
-
-    public func update(bodyText: String?) {
-        editingItemsRepository.bodyText = bodyText
+    public var hasAttachedMedia: Bool {
+        guard let item = editingItemsRepository.item(of: AttachmentItem.self) else { return false }
+        return item.media != .none
     }
 
-    public func fetchTopics() -> [TopicProtocol] { return topicsRepository.topics }
+    public func update(bodyText: String?) {
+        guard var item = editingItemsRepository.item(of: BodyItem.self) else { return }
+        item.bodyText = bodyText
+        editingItemsRepository.set(item: item)
+    }
+
+    public func fetchTopics() -> [TopicProtocol] {
+        guard let item = editingItemsRepository.item(of: TopicItem.self) else { return [] }
+        return item.topics
+    }
 
     public func update(selectedTopic: TopicProtocol) {
-        editingItemsRepository.selectedTopic = selectedTopic
-        guard let indexPath = editingItemsRepository.indexPath(of: TopicItem.self)
-            else { return }
+        guard var item = editingItemsRepository.item(of: TopicItem.self) else { return }
+        item.selected = selectedTopic
+        guard let indexPath = editingItemsRepository.set(item: item) else { return }
         feedbackEditingEventHandler.updated(at: indexPath)
     }
 
     public func update(attachmentMedia: Media?) {
-        editingItemsRepository.attachmentMedia = attachmentMedia
-        guard let indexPath = editingItemsRepository.indexPath(of: AttachmentItem.self)
-            else { return }
+        guard var item = editingItemsRepository.item(of: AttachmentItem.self) else { return }
+        item.media = attachmentMedia
+        guard let indexPath = editingItemsRepository.set(item: item) else { return }
         feedbackEditingEventHandler.updated(at: indexPath)
     }
 }

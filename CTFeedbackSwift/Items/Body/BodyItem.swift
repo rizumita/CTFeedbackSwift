@@ -5,6 +5,7 @@
 
 import Foundation
 
-struct BodyItem {
+struct BodyItem: FeedbackItemProtocol {
     var bodyText: String?
+    let isHidden: Bool = false
 }

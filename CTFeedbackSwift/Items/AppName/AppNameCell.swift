@@ -23,5 +23,6 @@ extension AppNameCell: CellFactoryProtocol {
                          eventHandler: Any?) {
         cell.textLabel?.text = CTLocalizedString("CTFeedback.AppNameTitle")
         cell.detailTextLabel?.text = item.name
+        cell.selectionStyle = .none
     }
 }

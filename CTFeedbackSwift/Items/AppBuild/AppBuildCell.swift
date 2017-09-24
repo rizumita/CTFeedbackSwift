@@ -23,5 +23,6 @@ extension AppBuildCell: CellFactoryProtocol {
                          eventHandler: Any?) {
         cell.textLabel?.text = CTLocalizedString("CTFeedback.AppBuildTitle")
         cell.detailTextLabel?.text = item.buildString
+        cell.selectionStyle = .none
     }
 }

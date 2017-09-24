@@ -5,8 +5,8 @@
 
 import Foundation
 
-public struct TopicItem {
-    public static var defaultTopics:        [TopicProtocol] {
+public struct TopicItem: FeedbackItemProtocol {
+    public static var defaultTopics: [TopicProtocol] {
         return [Topic.question,
                 Topic.request,
                 Topic.bugReport,
@@ -21,4 +21,10 @@ public struct TopicItem {
         set { _selected = newValue }
     }
     private var _selected: TopicProtocol?
+    public let isHidden: Bool
+
+    init(_ topics: [TopicProtocol]) {
+        self.topics = topics
+        self.isHidden = topics.isEmpty
+    }
 }

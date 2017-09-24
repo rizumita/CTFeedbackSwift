@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct AppNameItem {
+struct AppNameItem: FeedbackItemProtocol {
     var name: String {
         if let displayName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
             return displayName
@@ -15,4 +15,8 @@ struct AppNameItem {
         }
         return ""
     }
+
+    let isHidden: Bool
+
+    init(isHidden: Bool) { self.isHidden = isHidden }
 }

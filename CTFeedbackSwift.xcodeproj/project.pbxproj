@@ -23,8 +23,10 @@
 		CB87621FE97A70D33FF5F683 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8766D41BCDC01707AC5DC5 /* Topic.swift */; };
 		CB8762399CC0C2BBC564B9D3 /* AppBuildItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876F2E11CD6611E7323A6B /* AppBuildItem.swift */; };
 		CB87623B829B24D52257B2AC /* SystemVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */; };
+		CB8763005226D80CC26B0A86 /* UserEmailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876CD002290804AF19F14D /* UserEmailCell.swift */; };
 		CB8763E0273ABF694F3C273E /* AppVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8768B167D42B0F544432FB /* AppVersionCell.swift */; };
 		CB876425019154B4832FDFA8 /* AppNameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876341AE79F0E5CF5C2860 /* AppNameItem.swift */; };
+		CB87644E67265D1837BA241C /* FeedbackItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */; };
 		CB87645B7D79A960F92C4344 /* AppVersionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876C6F43DF4850C4D7E25A /* AppVersionItem.swift */; };
 		CB8764BDCE8FDB9B7DE9D83B /* FeedbackItemsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B39AE917BBEC8B9B8EE /* FeedbackItemsDataSource.swift */; };
 		CB8764EBB5FD49C2E7128B62 /* FeedbackEditingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */; };
@@ -35,6 +37,7 @@
 		CB87676F0D9180FC46C14F1D /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87614908796C90A845FE02 /* TopicCell.swift */; };
 		CB8767760CACB837643E2B3A /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */; };
 		CB876807646AE4B09D270166 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876CD556B91BB629E853CD /* FeedbackViewController.swift */; };
+		CB8768ACFC2A25686CB4CB2D /* UserEmailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */; };
 		CB87694AB34370FBFA6C3811 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D4DA34A167014FF778A /* Media.swift */; };
 		CB87694E738899EA4DFB81B2 /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87687D32131ECD2FD7476E /* AttachmentCell.swift */; };
 		CB876950021E6E3F9A40B2B4 /* FeedbackEditingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */; };
@@ -104,6 +107,7 @@
 		CB876341AE79F0E5CF5C2860 /* AppNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameItem.swift; sourceTree = "<group>"; };
 		CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingServiceTests.swift; sourceTree = "<group>"; };
 		CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameItem.swift; sourceTree = "<group>"; };
+		CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEmailItem.swift; sourceTree = "<group>"; };
 		CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		CB8765989849F7A43983EC32 /* AppNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameCell.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -120,9 +124,11 @@
 		CB876BE78C191E9DC672EE00 /* FeedbackEditingItemsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingItemsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		CB876C6F43DF4850C4D7E25A /* AppVersionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionItem.swift; sourceTree = "<group>"; };
 		CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingService.swift; sourceTree = "<group>"; };
+		CB876CD002290804AF19F14D /* UserEmailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEmailCell.swift; sourceTree = "<group>"; };
 		CB876CD556B91BB629E853CD /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		CB876D4DA34A167014FF778A /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameCell.swift; sourceTree = "<group>"; };
+		CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackItemProtocol.swift; sourceTree = "<group>"; };
 		CB876F2E11CD6611E7323A6B /* AppBuildItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBuildItem.swift; sourceTree = "<group>"; };
 		CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentItem.swift; sourceTree = "<group>"; };
 		CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */,
 				CB8769AC2239039187B021D1 /* FeedbackEditing */,
 				CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */,
+				CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */,
 			);
 			path = CTFeedbackSwift;
 			sourceTree = "<group>";
@@ -274,6 +281,15 @@
 			path = Body;
 			sourceTree = "<group>";
 		};
+		CB8768AAE41E34F26543FC2A /* UserEmail */ = {
+			isa = PBXGroup;
+			children = (
+				CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */,
+				CB876CD002290804AF19F14D /* UserEmailCell.swift */,
+			);
+			path = UserEmail;
+			sourceTree = "<group>";
+		};
 		CB8769AC2239039187B021D1 /* FeedbackEditing */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +328,7 @@
 				CB8769AF3F8DE0C6C1608E18 /* AppName */,
 				CB876FB916EB6DF168FC6095 /* AppVersion */,
 				CB8761D16E04C4718E6AA3AC /* AppBuild */,
+				CB8768AAE41E34F26543FC2A /* UserEmail */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -500,6 +517,9 @@
 				CB8763E0273ABF694F3C273E /* AppVersionCell.swift in Sources */,
 				CB8762399CC0C2BBC564B9D3 /* AppBuildItem.swift in Sources */,
 				CB876ACAFC9574B1787F0C6C /* AppBuildCell.swift in Sources */,
+				CB8768ACFC2A25686CB4CB2D /* UserEmailItem.swift in Sources */,
+				CB8763005226D80CC26B0A86 /* UserEmailCell.swift in Sources */,
+				CB87644E67265D1837BA241C /* FeedbackItemProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

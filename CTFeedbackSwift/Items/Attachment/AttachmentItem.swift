@@ -5,7 +5,7 @@
 
 import UIKit
 
-struct AttachmentItem {
+struct AttachmentItem: FeedbackItemProtocol {
     var attached: Bool { return media != .none }
     var media:    Media?
     var image:    UIImage? {
@@ -15,4 +15,7 @@ struct AttachmentItem {
         default:                return .none
         }
     }
+    let isHidden: Bool
+
+    init(isHidden: Bool) { self.isHidden = isHidden }
 }
