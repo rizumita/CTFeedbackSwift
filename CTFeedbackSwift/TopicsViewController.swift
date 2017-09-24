@@ -14,7 +14,7 @@ class TopicsViewController: UITableViewController {
 
     init(service: FeedbackEditingServiceProtocol) {
         self.feedbackEditingService = service
-        self.topics = self.feedbackEditingService.fetchTopics()
+        self.topics = self.feedbackEditingService.topics
         super.init(style: .plain)
     }
 

@@ -10,9 +10,10 @@ public protocol FeedbackEditingEventProtocol {
 }
 
 public protocol FeedbackEditingServiceProtocol {
+    var topics:           [TopicProtocol] { get }
     var hasAttachedMedia: Bool { get }
+    func update(userEmailText: String?)
     func update(bodyText: String?)
-    func fetchTopics() -> [TopicProtocol]
     func update(selectedTopic: TopicProtocol)
     func update(attachmentMedia: Media?)
 }
@@ -32,20 +33,26 @@ public class FeedbackEditingService {
 }
 
 extension FeedbackEditingService: FeedbackEditingServiceProtocol {
+    public var topics: [TopicProtocol] {
+        guard let item = editingItemsRepository.item(of: TopicItem.self) else { return [] }
+        return item.topics
+    }
+
     public var hasAttachedMedia: Bool {
         guard let item = editingItemsRepository.item(of: AttachmentItem.self) else { return false }
         return item.media != .none
+    }
+
+    public func update(userEmailText: String?) {
+        guard var item = editingItemsRepository.item(of: UserEmailItem.self) else { return }
+        item.email = userEmailText
+        editingItemsRepository.set(item: item)
     }
 
     public func update(bodyText: String?) {
         guard var item = editingItemsRepository.item(of: BodyItem.self) else { return }
         item.bodyText = bodyText
         editingItemsRepository.set(item: item)
-    }
-
-    public func fetchTopics() -> [TopicProtocol] {
-        guard let item = editingItemsRepository.item(of: TopicItem.self) else { return [] }
-        return item.topics
     }
 
     public func update(selectedTopic: TopicProtocol) {

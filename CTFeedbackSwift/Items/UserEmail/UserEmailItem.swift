@@ -7,4 +7,7 @@ import Foundation
 
 struct UserEmailItem: FeedbackItemProtocol {
     let isHidden: Bool
+    var email:    String? = .none
+
+    init(isHidden: Bool) { self.isHidden = isHidden }
 }

@@ -137,7 +137,9 @@ extension FeedbackViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension FeedbackViewController: UserEmailCellEventProtocol {
-    func userEmailTextDidChange(_ text: String?) {}
+    func userEmailTextDidChange(_ text: String?) {
+        feedbackEditingService.update(userEmailText: text)
+    }
 }
 
 extension FeedbackViewController: BodyCellEventProtocol {
