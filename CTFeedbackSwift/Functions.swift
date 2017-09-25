@@ -40,7 +40,7 @@ func getMediaFromURL(_ url: URL) -> Media? {
     let time = CMTimeMake(1, 1)
     guard let cgImage = try? generator.copyCGImage(at: time, actualTime: .none)
         else { return .none }
-    return .movie(UIImage(cgImage: cgImage), url)
+    return .video(UIImage(cgImage: cgImage), url)
 }
 
 func push<Item>(_ item: Item?) -> (((Item) -> ()) -> ())? {

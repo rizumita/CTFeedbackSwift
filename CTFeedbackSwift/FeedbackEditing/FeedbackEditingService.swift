@@ -16,6 +16,7 @@ public protocol FeedbackEditingServiceProtocol {
     func update(bodyText: String?)
     func update(selectedTopic: TopicProtocol)
     func update(attachmentMedia: Media?)
+    func generateFeedback(configuration: FeedbackConfiguration) throws -> Feedback
 }
 
 public class FeedbackEditingService {
@@ -67,5 +68,10 @@ extension FeedbackEditingService: FeedbackEditingServiceProtocol {
         item.media = attachmentMedia
         guard let indexPath = editingItemsRepository.set(item: item) else { return }
         feedbackEditingEventHandler.updated(at: indexPath)
+    }
+
+    public func generateFeedback(configuration: FeedbackConfiguration) throws -> Feedback {
+        return try FeedbackGenerator.generate(configuration: configuration,
+                                              repository: editingItemsRepository)
     }
 }

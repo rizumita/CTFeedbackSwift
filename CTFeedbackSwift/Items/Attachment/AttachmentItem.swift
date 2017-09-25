@@ -11,7 +11,7 @@ struct AttachmentItem: FeedbackItemProtocol {
     var image:    UIImage? {
         switch media {
         case .image(let i)?:    return i
-        case .movie(let i, _)?: return i
+        case .video(let i, _)?: return i
         default:                return .none
         }
     }

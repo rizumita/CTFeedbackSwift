@@ -29,6 +29,7 @@
 		CB87644E67265D1837BA241C /* FeedbackItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */; };
 		CB87645B7D79A960F92C4344 /* AppVersionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876C6F43DF4850C4D7E25A /* AppVersionItem.swift */; };
 		CB8764BDCE8FDB9B7DE9D83B /* FeedbackItemsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B39AE917BBEC8B9B8EE /* FeedbackItemsDataSource.swift */; };
+		CB8764E3BB5456699222209C /* CTFeedbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876F133B2A8A5F91694D9F /* CTFeedbackError.swift */; };
 		CB8764EBB5FD49C2E7128B62 /* FeedbackEditingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */; };
 		CB876598F32E868D4AD84EF0 /* DrawUpPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */; };
 		CB876683822BD49B9AB64DBA /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8761CC5DA201BD573FB5C8 /* CellFactory.swift */; };
@@ -38,6 +39,7 @@
 		CB8767760CACB837643E2B3A /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */; };
 		CB876807646AE4B09D270166 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876CD556B91BB629E853CD /* FeedbackViewController.swift */; };
 		CB8768ACFC2A25686CB4CB2D /* UserEmailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */; };
+		CB8768EB44CCBFE8F62D4C57 /* FeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87656E632093055956B68D /* FeedbackGenerator.swift */; };
 		CB87694AB34370FBFA6C3811 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D4DA34A167014FF778A /* Media.swift */; };
 		CB87694E738899EA4DFB81B2 /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87687D32131ECD2FD7476E /* AttachmentCell.swift */; };
 		CB876950021E6E3F9A40B2B4 /* FeedbackEditingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */; };
@@ -48,6 +50,7 @@
 		CB876B0F48DD9649BFF6164F /* AppNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8765989849F7A43983EC32 /* AppNameCell.swift */; };
 		CB876B2BC3F438D615AC9730 /* TopicsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */; };
 		CB876B6C122002233A39B8EF /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8760E3FF2F5E04A43C2260 /* TopicsViewController.swift */; };
+		CB876C46314A944510B705BC /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */; };
 		CB876CF15E1E6803DF627C52 /* BodyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B8A154E1D66B4E2AD39 /* BodyItem.swift */; };
 		CB876DB4B3F11CBD2DC473BE /* FeedbackEditingItemsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876BE78C191E9DC672EE00 /* FeedbackEditingItemsRepositoryProtocol.swift */; };
 		CB876ECC17B3802605587A59 /* DeviceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */; };
@@ -105,10 +108,12 @@
 		CB8761CC5DA201BD573FB5C8 /* CellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
 		CB87633E53D9BB6274A06C7F /* AppBuildCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBuildCell.swift; sourceTree = "<group>"; };
 		CB876341AE79F0E5CF5C2860 /* AppNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameItem.swift; sourceTree = "<group>"; };
+		CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingServiceTests.swift; sourceTree = "<group>"; };
 		CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameItem.swift; sourceTree = "<group>"; };
 		CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEmailItem.swift; sourceTree = "<group>"; };
 		CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		CB87656E632093055956B68D /* FeedbackGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackGenerator.swift; sourceTree = "<group>"; };
 		CB8765989849F7A43983EC32 /* AppNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameCell.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemVersionCell.swift; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 		CB876D4DA34A167014FF778A /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameCell.swift; sourceTree = "<group>"; };
 		CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackItemProtocol.swift; sourceTree = "<group>"; };
+		CB876F133B2A8A5F91694D9F /* CTFeedbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFeedbackError.swift; sourceTree = "<group>"; };
 		CB876F2E11CD6611E7323A6B /* AppBuildItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBuildItem.swift; sourceTree = "<group>"; };
 		CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentItem.swift; sourceTree = "<group>"; };
 		CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 				CB8769AC2239039187B021D1 /* FeedbackEditing */,
 				CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */,
 				CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */,
+				CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */,
 			);
 			path = CTFeedbackSwift;
 			sourceTree = "<group>";
@@ -295,6 +302,8 @@
 			children = (
 				CB876C80A74E207AA55A4B82 /* FeedbackEditingService.swift */,
 				CB876BE78C191E9DC672EE00 /* FeedbackEditingItemsRepositoryProtocol.swift */,
+				CB87656E632093055956B68D /* FeedbackGenerator.swift */,
+				CB876F133B2A8A5F91694D9F /* CTFeedbackError.swift */,
 			);
 			path = FeedbackEditing;
 			sourceTree = "<group>";
@@ -520,6 +529,9 @@
 				CB8768ACFC2A25686CB4CB2D /* UserEmailItem.swift in Sources */,
 				CB8763005226D80CC26B0A86 /* UserEmailCell.swift in Sources */,
 				CB87644E67265D1837BA241C /* FeedbackItemProtocol.swift in Sources */,
+				CB876C46314A944510B705BC /* Feedback.swift in Sources */,
+				CB8768EB44CCBFE8F62D4C57 /* FeedbackGenerator.swift in Sources */,
+				CB8764E3BB5456699222209C /* CTFeedbackError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

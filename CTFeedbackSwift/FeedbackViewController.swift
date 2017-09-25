@@ -9,11 +9,15 @@
 import UIKit
 import Dispatch
 import MobileCoreServices
+import MessageUI
 
 public class FeedbackViewController: UITableViewController {
-    public var  configuration: FeedbackConfiguration {
+    public var replacedFeedbackSendingAction: ((Feedback) -> ())?
+    public var feedbackDidFailed:             ((MFMailComposeResult, NSError) -> ())?
+    public var configuration:                 FeedbackConfiguration {
         didSet { updateDataSource(configuration: configuration) }
     }
+
     private let cellFactories = [AnyCellFactory(UserEmailCell.self),
                                  AnyCellFactory(TopicCell.self),
                                  AnyCellFactory(BodyCell.self),
@@ -45,6 +49,7 @@ public class FeedbackViewController: UITableViewController {
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+        tableView.keyboardDismissMode = .onDrag
 
         cellFactories.forEach(tableView.register(with:))
         updateDataSource(configuration: configuration)
@@ -106,7 +111,7 @@ extension FeedbackViewController {
 }
 
 extension FeedbackViewController {
-    // UITableViewDelegate
+    // MARK: - UITableViewDelegate
 
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = configuration.dataSource.section(at: indexPath.section)[indexPath.row]
@@ -154,7 +159,9 @@ extension FeedbackViewController: BodyCellEventProtocol {
 }
 
 extension FeedbackViewController: AttachmentCellEventProtocol {
-    func showImage(of item: AttachmentItem) {}
+    func showImage(of item: AttachmentItem) {
+        // Pending
+    }
 }
 
 extension FeedbackViewController {
@@ -204,7 +211,56 @@ extension FeedbackViewController {
     }
 
     @objc func mailButtonTapped(_ sender: Any) {
+        do {
+            let feedback: Feedback
+                = try feedbackEditingService.generateFeedback(configuration: configuration)
+            if let action = replacedFeedbackSendingAction {
+                action(feedback)
+            } else {
+                createMail(with: feedback)
+            }
+        } catch {
+            showFeedbackGenerationError()
+        }
+    }
 
+    private func createMail(with feedback: Feedback) {
+        guard MFMailComposeViewController.canSendMail() else { return showMailConfigurationError() }
+        let controller: MFMailComposeViewController = MFMailComposeViewController()
+        controller.mailComposeDelegate = self
+        controller.setToRecipients(feedback.to)
+        controller.setCcRecipients(feedback.cc)
+        controller.setBccRecipients(feedback.bcc)
+        controller.setSubject(feedback.subject)
+        controller.setMessageBody(feedback.body, isHTML: feedback.isHTML)
+        if let jpeg = feedback.jpeg {
+            controller.addAttachmentData(jpeg, mimeType: "image/jpeg", fileName: "screenshot.jpg")
+        } else if let mp4 = feedback.mp4 {
+            controller.addAttachmentData(mp4, mimeType: "video/mp4", fileName: "screenshot.mp4")
+        }
+        present(controller, animated: true)
+    }
+
+    private func showFeedbackGenerationError() {
+        let alertController
+            = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                message:
+                                CTLocalizedString("CTFeedback.FeedbackGenerationErrorMessage"),
+                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        present(alertController, animated: true)
+    }
+
+    private func showMailConfigurationError() {
+        let alertController
+            = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                message:
+                                CTLocalizedString("CTFeedback.MailConfigurationErrorMessage"),
+                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        present(alertController, animated: true)
     }
 
     private func showAttachmentActionSheet() {
@@ -212,17 +268,14 @@ extension FeedbackViewController {
                                                 message: .none,
                                                 preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            alertController.addAction(UIAlertAction(title: CTLocalizedString(
-                "CTFeedback.PhotoLibrary"),
-                                                    style: .default) { _ in
-                self.showImagePicker(sourceType: .photoLibrary)
-            })
+            alertController.addAction(
+                UIAlertAction(title: CTLocalizedString("CTFeedback.PhotoLibrary"),
+                              style: .default) { _ in self.showImagePicker(sourceType: .photoLibrary) })
         }
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Camera"),
-                                                    style: .default) { _ in
-                self.showImagePicker(sourceType: .camera)
-            })
+            alertController.addAction(
+                UIAlertAction(title: CTLocalizedString("CTFeedback.Camera"),
+                              style: .default) { _ in self.showImagePicker(sourceType: .camera) })
         }
         if feedbackEditingService.hasAttachedMedia {
             alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Delete"),
@@ -248,6 +301,15 @@ extension FeedbackViewController {
         presentation?.sourceRect = view.frame
         present(imagePicker, animated: true)
     }
+
+    private func showMailComposingError(_ error: NSError) {
+        let alertController = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                                message: error.localizedDescription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        present(alertController, animated: true)
+    }
 }
 
 extension FeedbackViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -272,5 +334,33 @@ extension FeedbackViewController: UIImagePickerControllerDelegate, UINavigationC
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
+    }
+}
+
+extension FeedbackViewController: MFMailComposeViewControllerDelegate {
+    public func mailComposeController(_ controller: MFMailComposeViewController,
+                                      didFinishWith result: MFMailComposeResult,
+                                      error: Error?) {
+        var completion: (() -> ())? = {
+            if self.presentingViewController?.presentedViewController != .none {
+                self.dismiss(animated: true)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+
+            if result == .failed,
+               let error = error as NSError?,
+               let callback = self.feedbackDidFailed {
+                callback(result, error)
+            }
+        }
+
+        if result == .cancelled {
+            completion = .none
+        } else if result == .failed, let error = error as NSError? {
+            showMailComposingError(error)
+        }
+
+        dismiss(animated: true, completion: completion)
     }
 }
