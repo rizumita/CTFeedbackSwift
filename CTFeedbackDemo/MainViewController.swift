@@ -44,7 +44,7 @@ class MainViewController: UITableViewController {
 
     private func showFeedback() {
         let configuration = FeedbackConfiguration(toRecipients: ["test@example.com"],
-                                                  hidesUserEmailCell: false)
+                                                  usesHTML: true)
         let controller    = FeedbackViewController(configuration: configuration)
         navigationController?.pushViewController(controller, animated: true)
     }

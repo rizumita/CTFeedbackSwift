@@ -1,0 +1,152 @@
+//
+// Created by 和泉田 領一 on 2017/09/25.
+// Copyright (c) 2017 CAPH TECH. All rights reserved.
+//
+
+import UIKit
+import MobileCoreServices
+import MessageUI
+
+protocol FeedbackWireframeProtocol {
+    func showTopicsView(with service: FeedbackEditingServiceProtocol)
+    func showMailComposer(with feedback: Feedback)
+    func showAttachmentActionSheet(deleteAction: (() -> ())?)
+    func showFeedbackGenerationError()
+    func showUnknownErrorAlert()
+    func showMailComposingError(_ error: NSError)
+    func dismiss(completion: (() -> ())?)
+    func pop()
+}
+
+final class FeedbackWireframe {
+    private let viewController:        UIViewController
+    private let transitioningDelegate: UIViewControllerTransitioningDelegate
+    private let imagePickerDelegate:   UIImagePickerControllerDelegate & UINavigationControllerDelegate
+    private let mailComposerDelegate:  MFMailComposeViewControllerDelegate
+
+    init(viewController: UIViewController,
+         transitioningDelegate: UIViewControllerTransitioningDelegate,
+         imagePickerDelegate: UIImagePickerControllerDelegate & UINavigationControllerDelegate,
+         mailComposerDelegate: MFMailComposeViewControllerDelegate) {
+        self.viewController = viewController
+        self.transitioningDelegate = transitioningDelegate
+        self.imagePickerDelegate = imagePickerDelegate
+        self.mailComposerDelegate = mailComposerDelegate
+    }
+}
+
+extension FeedbackWireframe: FeedbackWireframeProtocol {
+    func showTopicsView(with service: FeedbackEditingServiceProtocol) {
+        let controller = TopicsViewController(service: service)
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = transitioningDelegate
+
+        DispatchQueue.main.async { self.viewController.present(controller, animated: true) }
+    }
+
+    func showMailComposer(with feedback: Feedback) {
+        guard MFMailComposeViewController.canSendMail() else { return showMailConfigurationError() }
+        let controller: MFMailComposeViewController = MFMailComposeViewController()
+        controller.mailComposeDelegate = mailComposerDelegate
+        controller.setToRecipients(feedback.to)
+        controller.setCcRecipients(feedback.cc)
+        controller.setBccRecipients(feedback.bcc)
+        controller.setSubject(feedback.subject)
+        controller.setMessageBody(feedback.body, isHTML: feedback.isHTML)
+        if let jpeg = feedback.jpeg {
+            controller.addAttachmentData(jpeg, mimeType: "image/jpeg", fileName: "screenshot.jpg")
+        } else if let mp4 = feedback.mp4 {
+            controller.addAttachmentData(mp4, mimeType: "video/mp4", fileName: "screenshot.mp4")
+        }
+        viewController.present(controller, animated: true)
+    }
+
+    func showAttachmentActionSheet(deleteAction: (() -> ())?) {
+        let alertController = UIAlertController(title: .none,
+                                                message: .none,
+                                                preferredStyle: .actionSheet)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(
+                UIAlertAction(title: CTLocalizedString("CTFeedback.PhotoLibrary"),
+                              style: .default) { _ in self.showImagePicker(sourceType: .photoLibrary) })
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(
+                UIAlertAction(title: CTLocalizedString("CTFeedback.Camera"),
+                              style: .default) { _ in self.showImagePicker(sourceType: .camera) })
+        }
+
+        if let delete = deleteAction {
+            alertController.addAction(
+                UIAlertAction(title: CTLocalizedString("CTFeedback.Delete"),
+                              style: .destructive) { _ in delete() })
+        }
+
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"),
+                                                style: .cancel))
+        viewController.present(alertController, animated: true)
+    }
+
+    func showFeedbackGenerationError() {
+        let alertController
+            = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                message:
+                                CTLocalizedString("CTFeedback.FeedbackGenerationErrorMessage"),
+                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        viewController.present(alertController, animated: true)
+    }
+
+    func showUnknownErrorAlert() {
+        let title           = CTLocalizedString("CTFeedback.UnknownError")
+        let alertController = UIAlertController(title: title,
+                                                message: .none,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .default))
+        viewController.present(alertController, animated: true)
+    }
+
+    func showMailComposingError(_ error: NSError) {
+        let alertController = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                                message: error.localizedDescription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        viewController.present(alertController, animated: true)
+    }
+
+    func dismiss(completion: (() -> ())?) {
+        viewController.dismiss(animated: true, completion: completion)
+    }
+
+    func pop() { viewController.navigationController?.popViewController(animated: true) }
+}
+
+extension FeedbackWireframe {
+    private func showMailConfigurationError() {
+        let alertController
+            = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
+                                message:
+                                CTLocalizedString("CTFeedback.MailConfigurationErrorMessage"),
+                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
+                                                style: .cancel))
+        viewController.present(alertController, animated: true)
+    }
+
+    private func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = imagePickerDelegate
+        imagePicker.modalPresentationStyle = .formSheet
+        let presentation = imagePicker.popoverPresentationController
+        presentation?.permittedArrowDirections = .any
+        presentation?.sourceView = viewController.view
+        presentation?.sourceRect = viewController.view.frame
+        viewController.present(imagePicker, animated: true)
+    }
+}

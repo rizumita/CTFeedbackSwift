@@ -38,6 +38,7 @@
 		CB87676F0D9180FC46C14F1D /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87614908796C90A845FE02 /* TopicCell.swift */; };
 		CB8767760CACB837643E2B3A /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */; };
 		CB876807646AE4B09D270166 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876CD556B91BB629E853CD /* FeedbackViewController.swift */; };
+		CB8768576B294B8A28F7775E /* FeedbackWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876EB98B61BB195914478B /* FeedbackWireframe.swift */; };
 		CB8768ACFC2A25686CB4CB2D /* UserEmailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */; };
 		CB8768EB44CCBFE8F62D4C57 /* FeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87656E632093055956B68D /* FeedbackGenerator.swift */; };
 		CB87694AB34370FBFA6C3811 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D4DA34A167014FF778A /* Media.swift */; };
@@ -134,6 +135,7 @@
 		CB876D4DA34A167014FF778A /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameCell.swift; sourceTree = "<group>"; };
 		CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackItemProtocol.swift; sourceTree = "<group>"; };
+		CB876EB98B61BB195914478B /* FeedbackWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackWireframe.swift; sourceTree = "<group>"; };
 		CB876F133B2A8A5F91694D9F /* CTFeedbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFeedbackError.swift; sourceTree = "<group>"; };
 		CB876F2E11CD6611E7323A6B /* AppBuildItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBuildItem.swift; sourceTree = "<group>"; };
 		CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentItem.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */,
 				CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */,
 				CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */,
+				CB876EB98B61BB195914478B /* FeedbackWireframe.swift */,
 			);
 			path = CTFeedbackSwift;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				CB876C46314A944510B705BC /* Feedback.swift in Sources */,
 				CB8768EB44CCBFE8F62D4C57 /* FeedbackGenerator.swift in Sources */,
 				CB8764E3BB5456699222209C /* CTFeedbackError.swift in Sources */,
+				CB8768576B294B8A28F7775E /* FeedbackWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
