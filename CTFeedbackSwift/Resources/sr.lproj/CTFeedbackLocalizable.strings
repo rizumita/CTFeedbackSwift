@@ -1,0 +1,54 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "Питање";
+
+"Request" = "Захтјев";
+
+"Bug Report" = "Грешка";
+
+"Other" = "Друго";
+
+"CTFeedback.Device" = "Уређај";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Име";
+
+"CTFeedback.Version" = "Верзија";
+
+"CTFeedback.Build" = "Подверзија";
+
+"CTFeedback.DeviceInfo" = "Информације о иређају";
+
+"CTFeedback.AppInfo" = "Информације о програму";
+
+"CTFeedback.Feedback" = "Повратна информација";
+
+"CTFeedback.Topic" = "Тема";
+
+"CTFeedback.Topics" = "Теме";
+
+"CTFeedback.Error" = "Грешка";
+
+"CTFeedback.Mail" = "Е-маил";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Немате подешен е-маил рачун";
+
+"CTFeedback.Dismiss" ="Затвори";
+
+"CTFeedback.AdditionalInfo"="Додатне информације";
+
+"CTFeedback.AttachImageOrVideo" ="Изаберите прилог (слику)";
+
+"CTFeedback.Cancel" ="Откажи";
+
+"CTFeedback.Camera" ="Камера";
+
+"CTFeedback.PhotoLibrary" ="Изаберите из албума";
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

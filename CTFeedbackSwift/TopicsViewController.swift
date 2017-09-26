@@ -22,6 +22,8 @@ class TopicsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = CTLocalizedString("CTFeedback.Topics")
     }
 
     override func didReceiveMemoryWarning() {

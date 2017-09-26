@@ -18,7 +18,7 @@ extension TopicCell: CellFactoryProtocol {
                           with item: TopicItem,
                           for indexPath: IndexPath,
                           eventHandler: Any?) {
-        cell.textLabel?.text = item.title
+        cell.textLabel?.text = CTLocalizedString("CTFeedback.Topic")
         cell.detailTextLabel?.text = item.topicTitle
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none

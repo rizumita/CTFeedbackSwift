@@ -28,7 +28,7 @@ class UserEmailCell: UITableViewCell {
 
         textField.backgroundColor = .clear
         textField.delegate = self
-        textField.placeholder = CTLocalizedString("CTFeedback.UserEmailPlaceholder")
+        textField.placeholder = CTLocalizedString("CTFeedback.Mail")
         textField.keyboardType = .emailAddress
         contentView.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false

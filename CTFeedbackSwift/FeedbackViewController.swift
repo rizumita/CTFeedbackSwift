@@ -64,7 +64,7 @@ public class FeedbackViewController: UITableViewController {
         cellFactories.forEach(tableView.register(with:))
         updateDataSource(configuration: configuration)
 
-        title = CTLocalizedString("CTFeedback.FeedbackViewTitle")
+        title = CTLocalizedString("CTFeedback.Feedback")
         navigationItem
             .rightBarButtonItem = UIBarButtonItem(title: CTLocalizedString("CTFeedback.Mail"),
                                                   style: .plain,

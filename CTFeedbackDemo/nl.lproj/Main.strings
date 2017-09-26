@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Feedback - Simple"; ObjectID = "9zk-o1-xhH"; */
+"9zk-o1-xhH.text" = "Feedback - Simple";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Pgf-xs-Oef"; */
+"Pgf-xs-Oef.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = "Feedback - Modal"; ObjectID = "ZOH-G7-6NW"; */
+"ZOH-G7-6NW.text" = "Feedback - Modal";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "aYu-TA-cZQ"; */
+"aYu-TA-cZQ.text" = "Feedback";
+
+/* Class = "UILabel"; text = "Feedback - Custom"; ObjectID = "y1T-Yo-hKa"; */
+"y1T-Yo-hKa.text" = "Feedback - Custom";

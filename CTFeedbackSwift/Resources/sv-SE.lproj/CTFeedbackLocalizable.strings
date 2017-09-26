@@ -1,0 +1,56 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "Förfrågan";
+
+"Request" = "Förslag";
+
+"Bug Report" = "Bugg";
+
+"Other" = "Annan";
+
+"CTFeedback.Device" = "Enhet";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Namn";
+
+"CTFeedback.Version" = "Version";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "Enhetsinformation ";
+
+"CTFeedback.AppInfo" = "App Info";
+
+"CTFeedback.Feedback" = "Feedback";
+
+"CTFeedback.Topic" = "Ämne";
+
+"CTFeedback.Topics" = "Ämnen";
+
+"CTFeedback.Error" = "Felmeddelande";
+
+"CTFeedback.Mail" = "Skicka";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Det går inte att verifiera ett giltligt epost-konto";
+
+"CTFeedback.Dismiss" ="Avfärda";
+
+"CTFeedback.AdditionalInfo"="Ytterligare information";
+
+"CTFeedback.AttachImageOrVideo" ="Välj bifogad fil(bild) ";
+
+"CTFeedback.Cancel" ="Ångra";
+
+"CTFeedback.Camera" ="Kamera";
+
+"CTFeedback.PhotoLibrary" ="Välj från album";
+
+"CTFeedback.UserDetail"="Användardetaljer";
+
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

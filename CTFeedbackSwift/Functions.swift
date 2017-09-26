@@ -10,10 +10,13 @@ import AVFoundation
 func CTLocalizedString(_ key: String) -> String {
     let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle]
     for bundle in bundles {
-        let string = NSLocalizedString(key, bundle: bundle, comment: "")
-        if !string.isEmpty { return string }
+        let string = NSLocalizedString(key,
+                                       tableName: "CTFeedbackLocalizable",
+                                       bundle: bundle,
+                                       comment: "")
+        if key != string { return string }
     }
-    return "key"
+    return key
 }
 
 func getMediaFromImagePickerInfo(_ info: [String : Any]) -> Media? {

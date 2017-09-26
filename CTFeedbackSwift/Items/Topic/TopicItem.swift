@@ -13,7 +13,6 @@ public struct TopicItem: FeedbackItemProtocol {
                 Topic.other]
     }
 
-    var title:      String? { return CTLocalizedString("CTFeedback.Topic") }
     var topicTitle: String { return selected?.localizedTitle ?? topics.first?.localizedTitle ?? "" }
     var topics:     [TopicProtocol] = []
     var selected:   TopicProtocol? {

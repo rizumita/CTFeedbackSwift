@@ -1,0 +1,54 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "問題";
+
+"Request" = "需求";
+
+"Bug Report" = "程式錯誤回報";
+
+"Other" = "其他";
+
+"CTFeedback.Device" = "設備";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "名字";
+
+"CTFeedback.Version" = "版本";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "設備資訊";
+
+"CTFeedback.AppInfo" = "軟體資訊";
+
+"CTFeedback.Feedback" = "反饋";
+
+"CTFeedback.Topic" = "主題";
+
+"CTFeedback.Topics" = "主題";
+
+"CTFeedback.Error" = "錯誤";
+
+"CTFeedback.Mail" = "郵件";
+
+"CTFeedback.MailConfigurationErrorMessage" ="您沒有一個有效的郵件賬戶";
+
+"CTFeedback.Dismiss" ="Dismiss";
+
+"CTFeedback.AdditionalInfo"="附加信息";
+
+"CTFeedback.AttachImageOrVideo" ="選擇反饋附件（圖片）";
+
+"CTFeedback.Cancel" ="取消";
+
+"CTFeedback.Camera" ="拍照";
+
+"CTFeedback.PhotoLibrary" ="從相冊中選取";
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

@@ -23,7 +23,7 @@ extension DeviceNameCell: CellFactoryProtocol {
                          with item: DeviceNameItem,
                          for indexPath: IndexPath,
                          eventHandler: Any?) {
-        cell.textLabel?.text = CTLocalizedString("CTFeedback.DeviceNameTitle")
+        cell.textLabel?.text = CTLocalizedString("CTFeedback.Device")
         cell.detailTextLabel?.text = item.deviceName
         cell.selectionStyle = .none
     }

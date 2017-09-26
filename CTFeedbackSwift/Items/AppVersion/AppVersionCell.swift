@@ -21,7 +21,7 @@ extension AppVersionCell: CellFactoryProtocol {
                          with item: AppVersionItem,
                          for indexPath: IndexPath,
                          eventHandler: Any?) {
-        cell.textLabel?.text = CTLocalizedString("CTFeedback.AppVersionTitle")
+        cell.textLabel?.text = CTLocalizedString("CTFeedback.Version")
         cell.detailTextLabel?.text = item.version
         cell.selectionStyle = .none
     }
