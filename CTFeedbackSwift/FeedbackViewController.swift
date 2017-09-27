@@ -30,8 +30,7 @@ public class FeedbackViewController: UITableViewController {
                                  AnyCellFactory(AppBuildCell.self)]
 
     private lazy var feedbackEditingService: FeedbackEditingServiceProtocol = {
-        return FeedbackEditingService(topicsRepository: configuration.dataSource,
-                                      editingItemsRepository: configuration.dataSource,
+        return FeedbackEditingService(editingItemsRepository: configuration.dataSource,
                                       feedbackEditingEventHandler: self)
     }()
 

@@ -50,7 +50,6 @@
 		CB876A8773582B8D902D1E8A /* AttachmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876FC0B126795C05F41AF9 /* AttachmentItem.swift */; };
 		CB876ACAFC9574B1787F0C6C /* AppBuildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87633E53D9BB6274A06C7F /* AppBuildCell.swift */; };
 		CB876B0F48DD9649BFF6164F /* AppNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8765989849F7A43983EC32 /* AppNameCell.swift */; };
-		CB876B2BC3F438D615AC9730 /* TopicsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */; };
 		CB876B6C122002233A39B8EF /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8760E3FF2F5E04A43C2260 /* TopicsViewController.swift */; };
 		CB876C46314A944510B705BC /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */; };
 		CB876CF15E1E6803DF627C52 /* BodyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B8A154E1D66B4E2AD39 /* BodyItem.swift */; };
@@ -169,7 +168,6 @@
 		CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEditingServiceTests.swift; sourceTree = "<group>"; };
 		CB8764645CCE70CB70CB20EE /* DeviceNameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceNameItem.swift; sourceTree = "<group>"; };
 		CB87646DB0DC8BC9404B2124 /* UserEmailItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEmailItem.swift; sourceTree = "<group>"; };
-		CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		CB87656E632093055956B68D /* FeedbackGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackGenerator.swift; sourceTree = "<group>"; };
 		CB8765989849F7A43983EC32 /* AppNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameCell.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 				CB876D38D3B77164C9F731FD /* Items */,
 				CB87689F225BC1B1E073AB2C /* FeedbackConfiguration.swift */,
 				CB8760E3FF2F5E04A43C2260 /* TopicsViewController.swift */,
-				CB8764D6BBB9B28503AC7A4D /* TopicsRepositoryProtocol.swift */,
 				CB8769AC2239039187B021D1 /* FeedbackEditing */,
 				CB876B765E289E5FA3D25A82 /* DrawUpPresentationController.swift */,
 				CB876DC2E3FB43F8773866FB /* FeedbackItemProtocol.swift */,
@@ -588,7 +585,6 @@
 				CB87669F21E161D8D3566BF5 /* FeedbackConfiguration.swift in Sources */,
 				CB87621FE97A70D33FF5F683 /* Topic.swift in Sources */,
 				CB876B6C122002233A39B8EF /* TopicsViewController.swift in Sources */,
-				CB876B2BC3F438D615AC9730 /* TopicsRepositoryProtocol.swift in Sources */,
 				CB8764EBB5FD49C2E7128B62 /* FeedbackEditingService.swift in Sources */,
 				CB876DB4B3F11CBD2DC473BE /* FeedbackEditingItemsRepositoryProtocol.swift in Sources */,
 				CB876598F32E868D4AD84EF0 /* DrawUpPresentationController.swift in Sources */,

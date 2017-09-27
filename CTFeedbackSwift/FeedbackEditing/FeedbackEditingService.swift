@@ -20,14 +20,11 @@ public protocol FeedbackEditingServiceProtocol {
 }
 
 public class FeedbackEditingService {
-    let topicsRepository:            TopicsRepositoryProtocol
     var editingItemsRepository:      FeedbackEditingItemsRepositoryProtocol
     let feedbackEditingEventHandler: FeedbackEditingEventProtocol
 
-    public init(topicsRepository: TopicsRepositoryProtocol,
-                editingItemsRepository: FeedbackEditingItemsRepositoryProtocol,
+    public init(editingItemsRepository: FeedbackEditingItemsRepositoryProtocol,
                 feedbackEditingEventHandler: FeedbackEditingEventProtocol) {
-        self.topicsRepository = topicsRepository
         self.editingItemsRepository = editingItemsRepository
         self.feedbackEditingEventHandler = feedbackEditingEventHandler
     }

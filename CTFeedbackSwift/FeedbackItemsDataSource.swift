@@ -39,17 +39,6 @@ public class FeedbackItemsDataSource {
     }
 }
 
-extension FeedbackItemsDataSource: TopicsRepositoryProtocol {
-    public var topics: [TopicProtocol] {
-        get { return item(of: TopicItem.self)?.topics ?? [] }
-        set {
-            guard var item = item(of: TopicItem.self) else { return }
-            item.topics = newValue
-            set(item: item)
-        }
-    }
-}
-
 extension FeedbackItemsDataSource {
     private subscript(indexPath: IndexPath) -> FeedbackItemProtocol {
         get { return sections[indexPath.section][indexPath.item] }
