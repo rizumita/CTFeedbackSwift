@@ -21,24 +21,14 @@ struct FeedbackGenerator {
 
         let subject = configuration.subject ?? generateSubject(appName: appName, topic: topic)
 
-        let formattedBody: String
-        if configuration.usesHTML {
-            formattedBody = generateHTML(body: body,
-                                         deviceName: deviceName,
-                                         systemVersion: systemVersion,
-                                         appName: appName,
-                                         appVersion: appVersion,
-                                         appBuild: appBuild,
-                                         additionalDiagnosticContent: configuration.additionalDiagnosticContent)
-        } else {
-            formattedBody = generateString(body: body,
-                                           deviceName: deviceName,
-                                           systemVersion: systemVersion,
-                                           appName: appName,
-                                           appVersion: appVersion,
-                                           appBuild: appBuild,
-                                           additionalDiagnosticContent: configuration.additionalDiagnosticContent)
-        }
+        let format        = configuration.usesHTML ? generateHTML : generateString
+        let formattedBody = format(body,
+                                   deviceName,
+                                   systemVersion,
+                                   appName,
+                                   appVersion,
+                                   appBuild,
+                                   configuration.additionalDiagnosticContent)
 
         return Feedback(email: email,
                         to: configuration.toRecipients,
@@ -102,4 +92,5 @@ struct FeedbackGenerator {
         if let additional = additionalDiagnosticContent { content.append(additional) }
         return content
     }
+
 }

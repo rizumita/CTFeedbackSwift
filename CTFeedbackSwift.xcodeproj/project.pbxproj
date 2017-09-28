@@ -53,6 +53,7 @@
 		CB876B6C122002233A39B8EF /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8760E3FF2F5E04A43C2260 /* TopicsViewController.swift */; };
 		CB876C46314A944510B705BC /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87637FBB177E4A2BA6EFC3 /* Feedback.swift */; };
 		CB876CF15E1E6803DF627C52 /* BodyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876B8A154E1D66B4E2AD39 /* BodyItem.swift */; };
+		CB876D6EB66677D3D76C3DA1 /* FeedbackGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8767EC79FB9E37697B5D8A /* FeedbackGeneratorTests.swift */; };
 		CB876DB4B3F11CBD2DC473BE /* FeedbackEditingItemsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876BE78C191E9DC672EE00 /* FeedbackEditingItemsRepositoryProtocol.swift */; };
 		CB876ECC17B3802605587A59 /* DeviceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB876D72F1DD9AD7DE1914B3 /* DeviceNameCell.swift */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,7 @@
 		CB8765989849F7A43983EC32 /* AppNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNameCell.swift; sourceTree = "<group>"; };
 		CB8766D41BCDC01707AC5DC5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		CB8767C4DD0813927F86F8E6 /* SystemVersionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemVersionCell.swift; sourceTree = "<group>"; };
+		CB8767EC79FB9E37697B5D8A /* FeedbackGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackGeneratorTests.swift; sourceTree = "<group>"; };
 		CB876820B377EF65BB62A129 /* SystemVersionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemVersionItem.swift; sourceTree = "<group>"; };
 		CB87687D32131ECD2FD7476E /* AttachmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
 		CB87689F225BC1B1E073AB2C /* FeedbackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackConfiguration.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				6A46388B1F6130D600CD41BC /* Info.plist */,
 				CB8763E213F5FFF27672957D /* FeedbackEditingServiceTests.swift */,
 				CB876FC639633D8AC8BB6C8D /* FunctionsTests.swift */,
+				CB8767EC79FB9E37697B5D8A /* FeedbackGeneratorTests.swift */,
 			);
 			path = CTFeedbackSwiftTests;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 			files = (
 				CB876950021E6E3F9A40B2B4 /* FeedbackEditingServiceTests.swift in Sources */,
 				CB8767760CACB837643E2B3A /* FunctionsTests.swift in Sources */,
+				CB876D6EB66677D3D76C3DA1 /* FeedbackGeneratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
