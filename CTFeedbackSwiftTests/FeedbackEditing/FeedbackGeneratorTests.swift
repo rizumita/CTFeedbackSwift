@@ -47,7 +47,7 @@ class FeedbackGeneratorTests: XCTestCase {
                                                           repository: configuration.dataSource)
             XCTAssertEqual(feedback.subject, "Subject")
             XCTAssertTrue(feedback.body.contains("Additional"))
-            XCTAssertTrue(feedback.isHTML)
+            XCTAssertFalse(feedback.isHTML)
             XCTAssertEqual(feedback.to, ["to@example.com"])
             XCTAssertEqual(feedback.cc, ["cc@example.com"])
             XCTAssertEqual(feedback.bcc, ["bcc@example.com"])

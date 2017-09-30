@@ -21,7 +21,7 @@ class UserEmailCell: UITableViewCell {
 
     private var eventHandler: UserEmailCellEventProtocol!
 
-    private let textField = UITextField()
+    let textField = UITextField()
 
     override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
