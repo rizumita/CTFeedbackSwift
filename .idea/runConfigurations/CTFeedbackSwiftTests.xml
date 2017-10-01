@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="CTFeedbackSwiftTests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CTFeedbackSwift" TARGET_NAME="CTFeedbackSwiftTests" CONFIG_NAME="Debug" SCHEME_NAME="CTFeedbackSwiftTests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
+  <configuration default="false" name="CTFeedbackSwiftTests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CTFeedbackSwift" TARGET_NAME="CTFeedbackSwiftTests" CONFIG_NAME="Debug" SCHEME_NAME="CTFeedbackSwiftTests" TEST_MODE="SUITE_TEST">
     <envs />
     <method />
   </configuration>
