@@ -44,6 +44,18 @@
 	<string>iPhone 7 (GSM)</string>
 	<key>iPhone9,4</key>
 	<string>iPhone 7 Plus (GSM)</string>
+	<key>iPhone10,1</key>
+	<string>iPhone 8 (Global)</string>
+	<key>iPhone10,4</key>
+	<string>iPhone 8 (GSM)</string>
+	<key>iPhone10,2</key>
+	<string>iPhone 8 Plus (Global)</string>
+	<key>iPhone10,5</key>
+	<string>iPhone 8 Plus (GSM)</string>
+	<key>iPhone10,3</key>
+	<string>iPhone X (Global)</string>
+	<key>iPhone10,6</key>
+	<string>iPhone X (GSM)</string>
 	<key>iPod1,1</key>
 	<string>iPod Touch 1G</string>
 	<key>iPod2,1</key>
