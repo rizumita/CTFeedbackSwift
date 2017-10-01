@@ -3,6 +3,8 @@ CTFeedbackSwift is a framework to compose a feedback for iOS 9.0+
 
 [CTFeedback](https://github.com/rizumita/CTFeedback) is written in Objective-C. CTFeedbackSwift is rebooted with Swift.
 
+![Screenshot](https://github.com/rizumita/CTFeedbackSwift/raw/master/CTFeedbackSwift.png)
+
 ## Install
 
 CTFeedbackSwift is now support Carthage.
