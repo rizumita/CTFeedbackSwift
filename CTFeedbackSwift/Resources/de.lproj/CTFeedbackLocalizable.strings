@@ -1,0 +1,56 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "Frage";
+
+"Request" = "Anfrage";
+
+"Bug Report" = "Fehlerbericht";
+
+"Other" = "Sonstiges";
+
+"CTFeedback.Device" = "Gerät";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Name";
+
+"CTFeedback.Version" = "Version";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "Geräte-Angaben";
+
+"CTFeedback.AppInfo" = "App-Angaben";
+
+"CTFeedback.Feedback" = "Feedback";
+
+"CTFeedback.Topic" = "Thema";
+
+"CTFeedback.Topics" = "Themen";
+
+"CTFeedback.Error" = "Fehler";
+
+"CTFeedback.Mail" = "E-Mail";
+
+"CTFeedback.MailConfigurationErrorMessage" = "Es ist kein gültiger E-Mail-Account eingerichtet.";
+
+"CTFeedback.Dismiss" = "Okay";
+
+"CTFeedback.AdditionalInfo" = "Zusätzliche Angaben";
+
+"CTFeedback.AttachImageOrVideo" = "Anhang für Feedback wählen (Foto)";
+
+"CTFeedback.Cancel" = "Abbrechen";
+
+"CTFeedback.Camera" = "Kamera";
+
+"CTFeedback.PhotoLibrary" = "Aus Album auswählen";
+
+
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

@@ -1,0 +1,54 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "سوال";
+
+"Request" = "درخواست";
+
+"Bug Report" = "بَگ رپورٹ";
+
+"Other" = "دیگر";
+
+"CTFeedback.Device" = "آلہ";
+
+"CTFeedback.iOS" = "آئی او ایس";
+
+"CTFeedback.Name" = "نام";
+
+"CTFeedback.Version" = "ورژن";
+
+"CTFeedback.Build" = "ساخت";
+
+"CTFeedback.DeviceInfo" = "معلوماتِ آلہ";
+
+"CTFeedback.AppInfo" = "معلوماتِ اطلاق";
+
+"CTFeedback.Feedback" = "رائے";
+
+"CTFeedback.Topic" = "موضوع";
+
+"CTFeedback.Topics" = "موضوعات";
+
+"CTFeedback.Error" = "غلطی";
+
+"CTFeedback.Mail" = "میل";
+
+"CTFeedback.MailConfigurationErrorMessage" ="آپ کے پاس جائز ای میل کھاتہ نہیں ہے";
+
+"CTFeedback.Dismiss" ="منسوخ";
+
+"CTFeedback.AdditionalInfo"="اضافی معلومات";
+
+"CTFeedback.AttachImageOrVideo" ="رائے کا منسلکہ(تصویر) منتخب کیجیے";
+
+"CTFeedback.Cancel" ="منسوخ";
+
+"CTFeedback.Camera" ="کیمرہ";
+
+"CTFeedback.PhotoLibrary" ="البم سے منتخب کیجیے";
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

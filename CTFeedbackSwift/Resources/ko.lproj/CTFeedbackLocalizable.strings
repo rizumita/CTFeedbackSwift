@@ -1,0 +1,54 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "질문";
+
+"Request" = "요청";
+
+"Bug Report" = "버그 리포트";
+
+"Other" = "기타";
+
+"CTFeedback.Device" = "디바이스";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "이름";
+
+"CTFeedback.Version" = "버젼";
+
+"CTFeedback.Build" = "빌드";
+
+"CTFeedback.DeviceInfo" = "디바이스 정보";
+
+"CTFeedback.AppInfo" = "앱 정보";
+
+"CTFeedback.Feedback" = "피드백";
+
+"CTFeedback.Topic" = "주제";
+
+"CTFeedback.Topics" = "주제들";
+
+"CTFeedback.Error" = "오류";
+
+"CTFeedback.Mail" = "메일";
+
+"CTFeedback.MailConfigurationErrorMessage" ="정상적인 이메일 계정을 갖고 있지 않습니다";
+
+"CTFeedback.Dismiss" ="닫기";
+
+"CTFeedback.AdditionalInfo"="추가 정보";
+
+"CTFeedback.AttachImageOrVideo" ="같이 전달할 첨부사진 고르기";
+
+"CTFeedback.Cancel" ="취소";
+
+"CTFeedback.Camera" ="카메라에서 선택";
+
+"CTFeedback.PhotoLibrary" ="앨범에서 선택";
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";
