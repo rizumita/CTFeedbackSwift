@@ -1,0 +1,57 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+// Edited by Dennis Kutlubaev (alwawee@gmail.com)
+
+"Question" = "Вопрос";
+
+"Request" = "Предложение";
+
+"Bug Report" = "Уведомление об ошибке";
+
+"Other" = "Другое";
+
+"CTFeedback.Device" = "Устройство";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Название";
+
+"CTFeedback.Version" = "Версия";
+
+"CTFeedback.Build" = "Сборка";
+
+"CTFeedback.DeviceInfo" = "Информация об устройстве";
+
+"CTFeedback.AppInfo" = "Информация о приложении";
+
+"CTFeedback.Feedback" = "Обратная связь";
+
+"CTFeedback.Topic" = "Тема";
+
+"CTFeedback.Topics" = "Темы";
+
+"CTFeedback.Error" = "Ошибка";
+
+"CTFeedback.Mail" = "Отправить";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Отсутствует учётная запись электронной почты.";
+
+"CTFeedback.Dismiss" ="Dismiss";
+
+"CTFeedback.AdditionalInfo"="Дополнительная информация";
+
+"CTFeedback.AttachImageOrVideo" ="Прикрепить";
+
+"CTFeedback.Cancel" ="Отмена";
+
+"CTFeedback.Camera" ="Камера";
+
+"CTFeedback.PhotoLibrary" ="Фотоальбом";
+
+"CTFeedback.UserDetail"="Информация о пользователе";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

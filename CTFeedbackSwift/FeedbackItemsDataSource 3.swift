@@ -19,7 +19,7 @@ public class FeedbackItemsDataSource {
                 hidesAttachmentCell: Bool = false,
                 hidesAppInfoSection: Bool = false) {
         sections.append(FeedbackItemsSection(title: CTLocalizedString("CTFeedback.UserDetail"),
-                                             items: [UserEmailItem(isHidden: hidesUserEmailCell)]))
+                                             items: [UserEmailItem(isHidden: false)]))
         sections.append(FeedbackItemsSection(items: [TopicItem(topics), BodyItem()]))
         sections.append(FeedbackItemsSection(title: CTLocalizedString("CTFeedback.AdditionalInfo"),
                                              items: [AttachmentItem(isHidden: hidesAttachmentCell)]))
