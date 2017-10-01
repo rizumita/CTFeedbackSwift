@@ -1,0 +1,54 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "Domanda";
+
+"Request" = "Richiesta";
+
+"Bug Report" = "Segnalazione Bug";
+
+"Other" = "Altro";
+
+"CTFeedback.Device" = "Dispositivo";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Nome";
+
+"CTFeedback.Version" = "Versione";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "Informazioni sul Dispositivo";
+
+"CTFeedback.AppInfo" = "Informazioni sull'App";
+
+"CTFeedback.Feedback" = "Feedback";
+
+"CTFeedback.Topic" = "Argomento";
+
+"CTFeedback.Topics" = "Argomenti";
+
+"CTFeedback.Error" = "Errore";
+
+"CTFeedback.Mail" = "Invia";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Account di posta non configurato";
+
+"CTFeedback.Dismiss" ="Chiudi";
+
+"CTFeedback.AdditionalInfo"="Informazioni Aggiuntive";
+
+"CTFeedback.AttachImageOrVideo" ="Seleziona un allegato (immagine)";
+
+"CTFeedback.Cancel" ="Annulla";
+
+"CTFeedback.Camera" ="Fotocamera";
+
+"CTFeedback.PhotoLibrary" ="Seleziona dalla libreria";
+"CTFeedback.UserDetail" = "User Detail";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";
