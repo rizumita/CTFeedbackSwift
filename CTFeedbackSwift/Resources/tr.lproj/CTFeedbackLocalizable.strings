@@ -1,0 +1,57 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ryoichi Izumita on 2013/10/31.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+// Edited by Gürhan Yerlikaya (gurhanyerlikaya@gmail.com)
+
+"Question" = "Soru";
+
+"Request" = "İstek";
+
+"Bug Report" = "Hata bildirimi";
+
+"Other" = "Diğer";
+
+"CTFeedback.Device" = "Cihaz";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "İsim";
+
+"CTFeedback.Version" = "Sürüm";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "Cihaz Bilgisi";
+
+"CTFeedback.AppInfo" = "Uygulama bilgisi";
+
+"CTFeedback.Feedback" = "Geri Bildirim";
+
+"CTFeedback.Topic" = "Konu";
+
+"CTFeedback.Topics" = "Konular";
+
+"CTFeedback.Error" = "Hata";
+
+"CTFeedback.Mail" = "Gönder";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Cihazda tanımlı e-posta bulunamadı.";
+
+"CTFeedback.Dismiss" ="Son ver";
+
+"CTFeedback.AdditionalInfo"="Ek bilgi";
+
+"CTFeedback.AttachImageOrVideo" ="Detay";
+
+"CTFeedback.Cancel" ="İptal";
+
+"CTFeedback.Camera" ="Kamera";
+
+"CTFeedback.PhotoLibrary" ="Cihaz’dan ekle";
+
+"CTFeedback.UserDetail"="Kullanıcı detayı";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";

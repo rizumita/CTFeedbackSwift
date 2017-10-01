@@ -1,0 +1,56 @@
+/* Localizable.strings
+  CTFeedbackDemo
+
+  Created by Ehab Abdou on 2016/05/10.
+  Copyright (c) 2013 CAPH. All rights reserved. */
+
+"Question" = "سؤال";
+
+"Request" = "طلب";
+
+"Bug Report" = "الإبلاغ عن خطأ";
+
+"Other" = "آخر";
+
+"CTFeedback.Device" = "الجهاز";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "الاسم";
+
+"CTFeedback.Version" = "الإصدار";
+
+"CTFeedback.Build" = "البنية";
+
+"CTFeedback.DeviceInfo" = "معلومات الجهاز";
+
+"CTFeedback.AppInfo" = "معلومات التطبيق";
+
+"CTFeedback.Feedback" = "رأيك";
+
+"CTFeedback.Topic" = "الموضوع";
+
+"CTFeedback.Topics" = "المواضيع";
+
+"CTFeedback.Error" = "خطأ";
+
+"CTFeedback.Mail" = "إرسال";
+
+"CTFeedback.MailConfigurationErrorMessage" ="لم يكن لديك حساب بريد إلكتروني صالح";
+
+"CTFeedback.Dismiss" ="صرف";
+
+"CTFeedback.AdditionalInfo"="معلومات إضافية";
+
+"CTFeedback.AttachImageOrVideo" ="اختر مرفق رأيك (صورة)";
+
+"CTFeedback.Cancel" ="إلغاء";
+
+"CTFeedback.Camera" ="كاميرا";
+
+"CTFeedback.PhotoLibrary" ="اختر من الألبوم";
+
+"CTFeedback.UserDetail"="معلومات المستخدم";
+
+"CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
+"CTFeedback.UnknownError" = "Unknown Error";
