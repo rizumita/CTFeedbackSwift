@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		6A23EBA51F77132C00EE3D53 /* PlatformNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A23EBA41F77101B00EE3D53 /* PlatformNames.plist */; };
 		6A36AC771F6C7B9100E77890 /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A36AC761F6C7B9100E77890 /* BodyCell.swift */; };
-		6A36AC781F6E0AB200E77890 /* CTFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */; };
-		6A36AC791F6E0AB200E77890 /* CTFeedback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6A4638851F6130D600CD41BC /* CTFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */; };
+		6A36AC781F6E0AB200E77890 /* CTFeedbackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */; };
+		6A36AC791F6E0AB200E77890 /* CTFeedbackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A4638851F6130D600CD41BC /* CTFeedbackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */; };
 		6A46388C1F6130D600CD41BC /* CTFeedbackSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A46387E1F6130D600CD41BC /* CTFeedbackSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A4638B71F61355600CD41BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4638B61F61355600CD41BC /* AppDelegate.swift */; };
 		6A4638B91F61355600CD41BC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4638B81F61355600CD41BC /* MainViewController.swift */; };
@@ -98,7 +98,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6A36AC791F6E0AB200E77890 /* CTFeedback.framework in Embed Frameworks */,
+				6A36AC791F6E0AB200E77890 /* CTFeedbackSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,7 +108,7 @@
 /* Begin PBXFileReference section */
 		6A23EBA41F77101B00EE3D53 /* PlatformNames.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PlatformNames.plist; sourceTree = "<group>"; };
 		6A36AC761F6C7B9100E77890 /* BodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
-		6A46387B1F6130D600CD41BC /* CTFeedback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CTFeedback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CTFeedbackSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A46387E1F6130D600CD41BC /* CTFeedbackSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTFeedbackSwift.h; sourceTree = "<group>"; };
 		6A46387F1F6130D600CD41BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A4638841F6130D600CD41BC /* CTFeedbackSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTFeedbackSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,7 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A4638851F6130D600CD41BC /* CTFeedback.framework in Frameworks */,
+				6A4638851F6130D600CD41BC /* CTFeedbackSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A36AC781F6E0AB200E77890 /* CTFeedback.framework in Frameworks */,
+				6A36AC781F6E0AB200E77890 /* CTFeedbackSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +279,7 @@
 		6A46387C1F6130D600CD41BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A46387B1F6130D600CD41BC /* CTFeedback.framework */,
+				6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */,
 				6A4638841F6130D600CD41BC /* CTFeedbackSwiftTests.xctest */,
 				6A4638B41F61355600CD41BC /* CTFeedbackDemo.app */,
 			);
@@ -576,7 +576,7 @@
 			);
 			name = CTFeedbackSwift;
 			productName = CTFeedbackSwift;
-			productReference = 6A46387B1F6130D600CD41BC /* CTFeedback.framework */;
+			productReference = 6A46387B1F6130D600CD41BC /* CTFeedbackSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6A4638831F6130D600CD41BC /* CTFeedbackSwiftTests */ = {
@@ -1012,7 +1012,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackSwift;
-				PRODUCT_NAME = CTFeedback;
+				PRODUCT_NAME = CTFeedbackSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1034,7 +1034,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackSwift;
-				PRODUCT_NAME = CTFeedback;
+				PRODUCT_NAME = CTFeedbackSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

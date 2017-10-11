@@ -50,6 +50,6 @@
 
 "CTFeedback.PhotoLibrary" = "Sélectionner depuis l'album";
 "CTFeedback.UserDetail" = "User Detail";
-"CTFeedback.Delete" = "CTFeedback.Delete";
+"CTFeedback.Delete" = "Delete";
 "CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
 "CTFeedback.UnknownError" = "Unknown Error";

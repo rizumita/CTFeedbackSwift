@@ -1,5 +1,5 @@
 import XCTest
-@testable import CTFeedback
+@testable import CTFeedbackSwift
 
 class FeedbackItemsDataSourceTests: XCTestCase {
     override func setUp() {
@@ -17,12 +17,12 @@ class FeedbackItemsDataSourceTests: XCTestCase {
                                                  hidesUserEmailCell: true,
                                                  hidesAttachmentCell: false,
                                                  hidesAppInfoSection: true)
-        XCTAssertEqual(dataSource.numberOfSections, 4)
+        XCTAssertEqual(dataSource.numberOfSections, 3)
     }
 
     func testSection() {
         let dataSource = FeedbackItemsDataSource(topics: TopicItem.defaultTopics,
-                                                 hidesUserEmailCell: true,
+                                                 hidesUserEmailCell: false,
                                                  hidesAttachmentCell: false,
                                                  hidesAppInfoSection: true)
         XCTAssertEqual(dataSource.section(at: 0).title, "User Detail")

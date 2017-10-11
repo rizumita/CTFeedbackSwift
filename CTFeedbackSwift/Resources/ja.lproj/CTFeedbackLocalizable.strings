@@ -38,7 +38,7 @@
 
 "CTFeedback.MailConfigurationErrorMessage" ="有効な電子メールアカウントを持っていません";
 
-"CTFeedback.Dismiss" ="Dismiss";
+"CTFeedback.Dismiss" ="閉じる";
 
 "CTFeedback.AdditionalInfo"="追加情報";
 
@@ -52,3 +52,4 @@
 "CTFeedback.UserDetail" = "ユーザ情報";
 "CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
 "CTFeedback.UnknownError" = "Unknown Error";
+"CTFeedback.Delete" = "削除";

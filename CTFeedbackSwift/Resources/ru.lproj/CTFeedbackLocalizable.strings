@@ -55,3 +55,4 @@
 "CTFeedback.UserDetail"="Информация о пользователе";
 "CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
 "CTFeedback.UnknownError" = "Unknown Error";
+"CTFeedback.Delete" = "Delete";

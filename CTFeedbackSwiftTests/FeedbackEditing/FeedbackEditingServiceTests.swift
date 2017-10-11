@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CTFeedback
+@testable import CTFeedbackSwift
 
 class FeedbackEditingServiceTests: XCTestCase {
     var itemsRepository: MockFeedbackEditingItemsRepository!

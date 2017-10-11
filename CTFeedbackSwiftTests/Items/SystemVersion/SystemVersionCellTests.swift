@@ -1,5 +1,5 @@
 import XCTest
-@testable import CTFeedback
+@testable import CTFeedbackSwift
 
 class SystemVersionCellTests: XCTestCase {
     override func setUp() {

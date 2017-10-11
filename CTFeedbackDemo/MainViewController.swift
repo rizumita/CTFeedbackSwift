@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CTFeedback
+import CTFeedbackSwift
 
 class MainViewController: UITableViewController {
     enum PresentationType: String {

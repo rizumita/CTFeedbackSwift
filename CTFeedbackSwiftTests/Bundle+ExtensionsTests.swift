@@ -1,5 +1,5 @@
 import XCTest
-@testable import CTFeedback
+@testable import CTFeedbackSwift
 
 class Bundle_ExtensionsTests:XCTestCase {
     override func setUp() {

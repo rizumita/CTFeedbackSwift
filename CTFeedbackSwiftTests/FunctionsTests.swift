@@ -1,6 +1,6 @@
 import XCTest
 import MobileCoreServices
-@testable import CTFeedback
+@testable import CTFeedbackSwift
 
 class FunctionsTests: XCTestCase {
     override func setUp() {

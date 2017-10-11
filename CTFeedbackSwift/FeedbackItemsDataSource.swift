@@ -9,9 +9,7 @@ public class FeedbackItemsDataSource {
     var sections: [FeedbackItemsSection] = []
 
     var numberOfSections: Int {
-        return sections.filter { section in
-            section.items.filter { !$0.isHidden }.isEmpty == false
-        }.count
+        return filteredSections.count
     }
 
     public init(topics: [TopicProtocol],
@@ -33,21 +31,26 @@ public class FeedbackItemsDataSource {
     }
 
     func section(at section: Int) -> FeedbackItemsSection {
-        return sections.filter { section in
-            section.items.filter { !$0.isHidden }.isEmpty == false
-        }[section]
+        return filteredSections[section]
     }
 }
 
 extension FeedbackItemsDataSource {
+    private var filteredSections: [FeedbackItemsSection] {
+        return sections.filter { section in
+            section.items.filter { !$0.isHidden }.isEmpty == false
+        }
+    }
+
     private subscript(indexPath: IndexPath) -> FeedbackItemProtocol {
-        get { return sections[indexPath.section][indexPath.item] }
-        set { sections[indexPath.section][indexPath.item] = newValue }
+        get { return filteredSections[indexPath.section][indexPath.item] }
+        set { filteredSections[indexPath.section][indexPath.item] = newValue }
     }
 
     private func indexPath<Item>(of type: Item.Type) -> IndexPath? {
-        for section in sections {
-            guard let index = sections.index(where: { $0 === section }),
+        let filtered = filteredSections
+        for section in filtered {
+            guard let index = filtered.index(where: { $0 === section }),
                   let subIndex = section.items.index(where: { $0 is Item })
                 else { continue }
             return IndexPath(item: subIndex, section: index)

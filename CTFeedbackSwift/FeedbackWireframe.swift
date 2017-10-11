@@ -19,10 +19,10 @@ protocol FeedbackWireframeProtocol {
 }
 
 final class FeedbackWireframe {
-    private let viewController:        UIViewController
-    private let transitioningDelegate: UIViewControllerTransitioningDelegate
-    private let imagePickerDelegate:   UIImagePickerControllerDelegate & UINavigationControllerDelegate
-    private let mailComposerDelegate:  MFMailComposeViewControllerDelegate
+    private weak var viewController:        UIViewController?
+    private weak var transitioningDelegate: UIViewControllerTransitioningDelegate?
+    private weak var imagePickerDelegate:   (UIImagePickerControllerDelegate & UINavigationControllerDelegate)?
+    private weak var mailComposerDelegate:  MFMailComposeViewControllerDelegate?
 
     init(viewController: UIViewController,
          transitioningDelegate: UIViewControllerTransitioningDelegate,
@@ -41,7 +41,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
         controller.modalPresentationStyle = .custom
         controller.transitioningDelegate = transitioningDelegate
 
-        DispatchQueue.main.async { self.viewController.present(controller, animated: true) }
+        DispatchQueue.main.async { self.viewController?.present(controller, animated: true) }
     }
 
     func showMailComposer(with feedback: Feedback) {
@@ -58,7 +58,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
         } else if let mp4 = feedback.mp4 {
             controller.addAttachmentData(mp4, mimeType: "video/mp4", fileName: "screenshot.mp4")
         }
-        viewController.present(controller, animated: true)
+        viewController?.present(controller, animated: true)
     }
 
     func showAttachmentActionSheet(deleteAction: (() -> ())?) {
@@ -84,7 +84,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
 
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"),
                                                 style: .cancel))
-        viewController.present(alertController, animated: true)
+        viewController?.present(alertController, animated: true)
     }
 
     func showFeedbackGenerationError() {
@@ -95,7 +95,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
                                                 style: .cancel))
-        viewController.present(alertController, animated: true)
+        viewController?.present(alertController, animated: true)
     }
 
     func showUnknownErrorAlert() {
@@ -105,7 +105,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
                                                 style: .default))
-        viewController.present(alertController, animated: true)
+        viewController?.present(alertController, animated: true)
     }
 
     func showMailComposingError(_ error: NSError) {
@@ -114,14 +114,14 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
                                                 style: .cancel))
-        viewController.present(alertController, animated: true)
+        viewController?.present(alertController, animated: true)
     }
 
     func dismiss(completion: (() -> ())?) {
-        viewController.dismiss(animated: true, completion: completion)
+        viewController?.dismiss(animated: true, completion: completion)
     }
 
-    func pop() { viewController.navigationController?.popViewController(animated: true) }
+    func pop() { viewController?.navigationController?.popViewController(animated: true) }
 }
 
 extension FeedbackWireframe {
@@ -133,7 +133,7 @@ extension FeedbackWireframe {
                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Dismiss"),
                                                 style: .cancel))
-        viewController.present(alertController, animated: true)
+        viewController?.present(alertController, animated: true)
     }
 
     private func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
@@ -145,8 +145,8 @@ extension FeedbackWireframe {
         imagePicker.modalPresentationStyle = .formSheet
         let presentation = imagePicker.popoverPresentationController
         presentation?.permittedArrowDirections = .any
-        presentation?.sourceView = viewController.view
-        presentation?.sourceRect = viewController.view.frame
-        viewController.present(imagePicker, animated: true)
+        presentation?.sourceView = viewController?.view
+        presentation?.sourceRect = viewController?.view.frame ?? CGRect.zero
+        viewController?.present(imagePicker, animated: true)
     }
 }
