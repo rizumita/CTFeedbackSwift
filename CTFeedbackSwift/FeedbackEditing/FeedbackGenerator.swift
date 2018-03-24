@@ -9,11 +9,11 @@ struct FeedbackGenerator {
     static func generate(configuration: FeedbackConfiguration,
                          repository: FeedbackEditingItemsRepositoryProtocol) throws -> Feedback {
         guard let deviceName = repository.item(of: DeviceNameItem.self)?.deviceName,
-              let systemVersion = repository.item(of: SystemVersionItem.self)?.version,
-              let appName = repository.item(of: AppNameItem.self)?.name,
-              let appVersion = repository.item(of: AppVersionItem.self)?.version,
-              let appBuild = repository.item(of: AppBuildItem.self)?.buildString
+              let systemVersion = repository.item(of: SystemVersionItem.self)?.version
             else { throw CTFeedbackError.unknown }
+        let appName    = repository.item(of: AppNameItem.self)?.name ?? ""
+        let appVersion = repository.item(of: AppVersionItem.self)?.version ?? ""
+        let appBuild   = repository.item(of: AppBuildItem.self)?.buildString ?? ""
         let email      = repository.item(of: UserEmailItem.self)?.email
         let topic      = repository.item(of: TopicItem.self)?.selected
         let attachment = repository.item(of: AttachmentItem.self)?.media
