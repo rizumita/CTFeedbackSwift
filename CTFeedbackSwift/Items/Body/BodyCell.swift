@@ -32,7 +32,7 @@ class BodyCell: UITableViewCell {
         return max(100.0, size.height)
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         textView.delegate = self

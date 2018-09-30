@@ -8,7 +8,7 @@ import UIKit
 public enum Media: Equatable {
     var jpegData: Data? {
         guard case let .image(image) = self else { return .none }
-        return UIImageJPEGRepresentation(image, 0.5)
+        return image.jpegData(compressionQuality: 0.5)
     }
     var videoData: Data? {
         guard case let .video(_, url) = self else { return .none }
