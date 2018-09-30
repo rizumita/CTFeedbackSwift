@@ -56,6 +56,14 @@
 	<string>iPhone X (Global)</string>
 	<key>iPhone10,6</key>
 	<string>iPhone X (GSM)</string>
+	<key>iPhone11,2</key>
+	<string>iPhone XS</string>
+	<key>iPhone11,4</key>
+	<string>iPhone XS Max</string>
+	<key>iPhone11,6</key>
+	<string>iPhone XS Max China</string>
+	<key>iPhone11,8</key>
+	<string>iPhone XR</string>
 	<key>iPod1,1</key>
 	<string>iPod Touch 1G</string>
 	<key>iPod2,1</key>
@@ -122,6 +130,30 @@
 	<string>iPad mini 4</string>
 	<key>iPad5,2</key>
 	<string>iPad mini 4</string>
+	<key>iPad6,7</key>
+	<string>iPad Pro (12.9)</string>
+	<key>iPad6,8</key>
+	<string>iPad Pro (12.9)</string>
+	<key>iPad6,3</key>
+	<string>iPad Pro (9.7)</string>
+	<key>iPad6,4</key>
+	<string>iPad Pro (9.7)</string>
+	<key>iPad6,11</key>
+	<string>iPad (5th generation)</string>
+	<key>iPad6,12</key>
+	<string>iPad (5th generation)</string>
+	<key>iPad7,1</key>
+	<string>iPad Pro (12.9, 2nd generation)</string>
+	<key>iPad7,2</key>
+	<string>iPad Pro (12.9, 2nd generation)</string>
+	<key>iPad7,3</key>
+	<string>iPad Pro (10.5)</string>
+	<key>iPad7,4</key>
+	<string>iPad Pro (10.5)</string>
+	<key>iPad7,5</key>
+	<string>iPad (6th generation)</string>
+	<key>iPad7,6</key>
+	<string>iPad (6th generation)</string>
 	<key>i386</key>
 	<string>Simulator</string>
 	<key>x86_64</key>

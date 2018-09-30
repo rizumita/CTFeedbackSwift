@@ -141,7 +141,7 @@ extension FeedbackWireframe {
         viewController?.present(alertController, animated: true)
     }
 
-    private func showImagePicker(sourceType: UIImagePickerControllerSourceType) {
+    private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
         imagePicker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
