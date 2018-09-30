@@ -6,7 +6,7 @@
 import UIKit
 
 final public class TopicCell: UITableViewCell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: TopicCell.reuseIdentifier)
     }
 

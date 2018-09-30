@@ -29,7 +29,7 @@ class AttachmentCell: UITableViewCell {
 
     private let tapImageViewGestureRecognizer = UITapGestureRecognizer()
 
-    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         attachmentImageView.translatesAutoresizingMaskIntoConstraints = false
