@@ -12,6 +12,7 @@ import MessageUI
 import Photos
 
 public class FeedbackViewController: UITableViewController {
+    public var mailComposeDelegate:           MFMailComposeViewControllerDelegate?
     public var replacedFeedbackSendingAction: ((Feedback) -> ())?
     public var feedbackDidFailed:             ((MFMailComposeResult, NSError) -> ())?
     public var configuration:                 FeedbackConfiguration {
@@ -257,6 +258,8 @@ extension FeedbackViewController: MFMailComposeViewControllerDelegate {
 
         wireframe.dismiss(completion:
                           result == .cancelled ? .none : { self.terminate(result, error) })
+
+        mailComposeDelegate?.mailComposeController?(controller, didFinishWith: result, error: error)
     }
 }
 
