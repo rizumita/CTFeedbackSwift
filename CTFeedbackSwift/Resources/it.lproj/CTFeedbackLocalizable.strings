@@ -53,3 +53,5 @@
 "CTFeedback.FeedbackGenerationErrorMessage" = "Feedback Generation Error";
 "CTFeedback.UnknownError" = "Unknown Error";
 "CTFeedback.Delete" = "Delete";
+"CTFeedback.requiredCameraAccess" = "Camera access is absolutely necessary to use this app";
+"CTFeedback.requiredLibraryAccess" = "Library access is absolutely necessary to use this app";
