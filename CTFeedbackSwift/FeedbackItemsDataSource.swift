@@ -50,8 +50,8 @@ extension FeedbackItemsDataSource {
     private func indexPath<Item>(of type: Item.Type) -> IndexPath? {
         let filtered = filteredSections
         for section in filtered {
-            guard let index = filtered.index(where: { $0 === section }),
-                  let subIndex = section.items.index(where: { $0 is Item })
+            guard let index = filtered.firstIndex(where: { $0 === section }),
+                let subIndex = section.items.firstIndex(where: { $0 is Item })
                 else { continue }
             return IndexPath(item: subIndex, section: index)
         }
