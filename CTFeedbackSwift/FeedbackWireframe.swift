@@ -10,7 +10,9 @@ import MessageUI
 protocol FeedbackWireframeProtocol {
     func showTopicsView(with service: FeedbackEditingServiceProtocol)
     func showMailComposer(with feedback: Feedback)
-    func showAttachmentActionSheet(deleteAction: (() -> ())?)
+    func showAttachmentActionSheet(authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
+                                   authorizeCamera: @escaping (@escaping (Bool) -> ()) -> (),
+                                   deleteAction: (() -> ())?)
     func showFeedbackGenerationError()
     func showUnknownErrorAlert()
     func showMailComposingError(_ error: NSError)
@@ -61,19 +63,37 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
         viewController?.present(controller, animated: true)
     }
 
-    func showAttachmentActionSheet(deleteAction: (() -> ())?) {
+    func showAttachmentActionSheet(authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
+                                   authorizeCamera: @escaping (@escaping (Bool) -> ()) -> (),
+                                   deleteAction: (() -> ())?) {
         let alertController = UIAlertController(title: .none,
                                                 message: .none,
                                                 preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             alertController.addAction(
                 UIAlertAction(title: CTLocalizedString("CTFeedback.PhotoLibrary"),
-                              style: .default) { _ in self.showImagePicker(sourceType: .photoLibrary) })
+                              style: .default) { _ in
+                    authorizePhotoLibrary { granted in
+                        if granted {
+                            self.showImagePicker(sourceType: .photoLibrary)
+                        } else {
+                            self.showPhotoLibraryAuthorizingAlert()
+                        }
+                    }
+                })
         }
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(
                 UIAlertAction(title: CTLocalizedString("CTFeedback.Camera"),
-                              style: .default) { _ in self.showImagePicker(sourceType: .camera) })
+                              style: .default) { _ in
+                    authorizeCamera { granted in
+                        if granted {
+                            self.showImagePicker(sourceType: .camera)
+                        } else {
+                            self.showCameraAuthorizingAlert()
+                        }
+                    }
+                })
         }
 
         if let delete = deleteAction {
@@ -129,8 +149,8 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
     func pop() { viewController?.navigationController?.popViewController(animated: true) }
 }
 
-extension FeedbackWireframe {
-    private func showMailConfigurationError() {
+private extension FeedbackWireframe {
+    func showMailConfigurationError() {
         let alertController
             = UIAlertController(title: CTLocalizedString("CTFeedback.Error"),
                                 message:
@@ -141,7 +161,7 @@ extension FeedbackWireframe {
         viewController?.present(alertController, animated: true)
     }
 
-    private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+    func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
         imagePicker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
@@ -153,5 +173,29 @@ extension FeedbackWireframe {
         presentation?.sourceView = viewController?.view
         presentation?.sourceRect = viewController?.view.frame ?? CGRect.zero
         viewController?.present(imagePicker, animated: true)
+    }
+
+    func showPhotoLibraryAuthorizingAlert() {
+        let alert = UIAlertController(title: .none,
+                                      message: CTLocalizedString("CTFeedback.requiredLibraryAccess"),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.openURL(url)
+            }
+        }))
+        viewController?.present(alert, animated: true)
+    }
+
+    func showCameraAuthorizingAlert() {
+        let alert = UIAlertController(title: .none,
+                                      message: CTLocalizedString("CTFeedback.requiredCameraAccess"),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.openURL(url)
+            }
+        }))
+        viewController?.present(alert, animated: true)
     }
 }
