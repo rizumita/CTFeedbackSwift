@@ -52,12 +52,16 @@ struct FeedbackGenerator {
                                      appVersion: String,
                                      appBuild: String,
                                      additionalDiagnosticContent: String?) -> String {
+        var platform = "iOS"
+        #if targetEnvironment(macCatalyst)
+            platform="macOS"
+        #endif
         let format          = """
         <style>td {padding-right: 20px}</style>
  <p>%@</p><br />
  <table cellspacing=0 cellpadding=0>
  <tr><td>Device:</td><td><b>%@</b></td></tr>
- <tr><td>iOS:</td><td><b>%@</b></td></tr>
+ <tr><td>%@:</td><td><b>%@</b></td></tr>
  <tr><td>App:</td><td><b>%@</b></td></tr>
  <tr><td>Version:</td><td><b>%@</b></td></tr>
  <tr><td>Build:</td><td><b>%@</b></td></tr>
@@ -66,6 +70,7 @@ struct FeedbackGenerator {
         var content: String = String(format: format,
                                      body.replacingOccurrences(of: "\n", with: "<br />"),
                                      deviceName,
+                                     platform,
                                      systemVersion,
                                      appName,
                                      appVersion,
@@ -81,10 +86,15 @@ struct FeedbackGenerator {
                                        appVersion: String,
                                        appBuild: String,
                                        additionalDiagnosticContent: String?) -> String {
+        var platform = "iOS"
+        #if targetEnvironment(macCatalyst)
+            platform="macOS"
+        #endif
         var content: String
-            = String(format: "%@\n\n\nDevice: %@\niOS: %@\nApp: %@\nVersion: %@\nBuild: %@",
+            = String(format: "%@\n\n\nDevice: %@\n%@: %@\nApp: %@\nVersion: %@\nBuild: %@",
                      body,
                      deviceName,
+                     platform,
                      systemVersion,
                      appName,
                      appVersion,

@@ -21,7 +21,11 @@ extension SystemVersionCell: CellFactoryProtocol {
                          with item: SystemVersionItem,
                          for indexPath: IndexPath,
                          eventHandler: Any?) {
-        cell.textLabel?.text = CTLocalizedString("CTFeedback.iOS")
+        #if targetEnvironment(macCatalyst)
+            cell.textLabel?.text = "macOS"
+        #else
+            cell.textLabel?.text = CTLocalizedString("CTFeedback.iOS")
+        #endif
         cell.detailTextLabel?.text = item.version
         cell.selectionStyle = .none
     }
