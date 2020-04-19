@@ -130,14 +130,22 @@ extension FeedbackViewController {
         case _ as TopicItem:
             wireframe.showTopicsView(with: feedbackEditingService)
         case _ as AttachmentItem:
-            wireframe.showAttachmentActionSheet(authorizePhotoLibrary: { completion in
-                PHPhotoLibrary.requestAuthorization { status in completion(status == .authorized) }
-            },
-                                                authorizeCamera: { completion in
-                                                    AVCaptureDevice.requestAccess(for: AVMediaType.video,
-                                                                                  completionHandler: completion)
-                                                },
-                                                deleteAction: attachmentDeleteAction)
+            wireframe.showAttachmentActionSheet(
+                authorizePhotoLibrary: { completion in
+                    PHPhotoLibrary.requestAuthorization { status in
+                        DispatchQueue.main.async {
+                            completion(status == .authorized)
+                        }
+                    }
+                },
+                authorizeCamera: { completion in
+                    AVCaptureDevice.requestAccess(for: AVMediaType.video) { result in
+                        DispatchQueue.main.async {
+                            completion(result)
+                        }
+                    }
+                },
+                deleteAction: attachmentDeleteAction)
         default: ()
         }
         tableView.deselectRow(at: indexPath, animated: true)
