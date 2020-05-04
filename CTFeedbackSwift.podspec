@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CTFeedbackSwift"
-  s.version      = "0.1.7"
+  s.version      = "0.1.8"
   s.summary      = "Feedback composer for iOS"
   s.homepage     = "https://github.com/rizumita/CTFeedbackSwift"
   s.screenshots  = "https://github.com/rizumita/CTFeedbackSwift/raw/master/CTFeedbackSwift.png"
