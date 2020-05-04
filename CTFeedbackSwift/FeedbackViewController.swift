@@ -45,7 +45,11 @@ public class FeedbackViewController: UITableViewController {
     public init(configuration: FeedbackConfiguration) {
         self.configuration = configuration
 
-        super.init(style: .grouped)
+        if #available(iOS 13, *) {
+            super.init(style: .insetGrouped)
+        } else {
+            super.init(style: .grouped)
+        }
 
         wireframe = FeedbackWireframe(viewController: self,
                                       transitioningDelegate: self,
@@ -61,6 +65,7 @@ public class FeedbackViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.keyboardDismissMode = .onDrag
+        tableView.cellLayoutMarginsFollowReadableWidth = true
 
         cellFactories.forEach(tableView.register(with:))
         updateDataSource(configuration: configuration)
