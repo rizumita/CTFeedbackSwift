@@ -64,6 +64,14 @@
 	<string>iPhone XS Max China</string>
 	<key>iPhone11,8</key>
 	<string>iPhone XR</string>
+	<key>iPhone12,1</key>
+	<string>iPhone 11</string>
+	<key>iPhone12,3</key>
+	<string>iPhone 11 Pro</string>
+	<key>iPhone12,5</key>
+	<string>iPhone 11 Pro Max</string>
+	<key>iPhone12,8</key>
+	<string>iPhone SE (2nd Gen)</string>
 	<key>iPod1,1</key>
 	<string>iPod Touch 1G</string>
 	<key>iPod2,1</key>
@@ -75,7 +83,9 @@
 	<key>iPod5,1</key>
 	<string>iPod Touch 5G</string>
 	<key>iPod7,1</key>
-	<string>iPod touch 6G</string>
+	<string>iPod Touch 6G</string>
+	<key>iPod9,1</key>
+	<string>iPod Touch 7G</string>
 	<key>iPad1,1</key>
 	<string>iPad</string>
 	<key>iPad2,1</key>
@@ -154,6 +164,38 @@
 	<string>iPad (6th generation)</string>
 	<key>iPad7,6</key>
 	<string>iPad (6th generation)</string>
+	<key>iPad8,1</key>
+	<string>iPad Pro (11 WiFi)</string>
+	<key>iPad8,2</key>
+	<string>iPad Pro (11 1TB WiFi)</string>
+	<key>iPad8,3</key>
+	<string>iPad Pro (11 Cellular)</string>
+	<key>iPad8,4</key>
+	<string>iPad Pro (11 1TB Cellular)</string>
+	<key>iPad8,5</key>
+	<string>iPad Pro (12.9 3rd generation WiFi)</string>
+	<key>iPad8,6</key>
+	<string>iPad Pro (12.9 3rd generation 1TB WiFi)</string>
+	<key>iPad8,7</key>
+	<string>iPad Pro (12.9 3rd generation Cellular)</string>
+	<key>iPad8,8</key>
+	<string>iPad Pro (12.9 3rd generation 1TB Cellular)</string>
+	<key>iPad8,9</key>
+	<string>iPad Pro (11 2nd generation WiFi)</string>
+	<key>iPad8,10</key>
+	<string>iPad Pro (11 2nd generation 1TB WiFi)</string>
+	<key>iPad8,11</key>
+	<string>iPad Pro (12.9 4th generation WiFi)</string>
+	<key>iPad8,12</key>
+	<string>iPad Pro (12.9 4th generation Cellular)</string>
+	<key>iPad11,1</key>
+	<string>iPad mini (5th generation WiFi)</string>
+	<key>iPad11,2</key>
+	<string>iPad mini (5th generation Cellular)</string>
+	<key>iPad11,3</key>
+	<string>iPad Air (3rd generation WiFi)</string>
+	<key>iPad11,4</key>
+	<string>iPad Air (3rd generation Cellular)</string>
 	<key>i386</key>
 	<string>Simulator</string>
 	<key>x86_64</key>
