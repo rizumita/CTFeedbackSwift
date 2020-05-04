@@ -21,7 +21,10 @@ extension Bundle {
         let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle]
         for bundle in bundles {
             guard let path = bundle.path(forResource: "PlatformNames", ofType: "plist")
-                else { continue}
+                else { continue }
+            return path
+        }
+        if let path = Bundle.main.path(forResource: "PlatformNames", ofType: "plist") {
             return path
         }
         return .none
