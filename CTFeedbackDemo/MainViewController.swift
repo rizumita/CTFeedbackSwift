@@ -38,7 +38,7 @@ class MainViewController: UITableViewController {
         case .feedback: showFeedback()
         case .feedbackCustom: ()
         case .feedbackSimple: ()
-        case .feedbackModal: ()
+        case .feedbackModal: showFeedbackByModal()
         }
     }
 
@@ -47,5 +47,13 @@ class MainViewController: UITableViewController {
                                                   usesHTML: true)
         let controller    = FeedbackViewController(configuration: configuration)
         navigationController?.pushViewController(controller, animated: true)
+    }
+
+    private func showFeedbackByModal() {
+        let configuration = FeedbackConfiguration(toRecipients: ["test@example.com"],
+                                                  usesHTML: true)
+        let controller    = FeedbackViewController(configuration: configuration)
+        let nav = UINavigationController(rootViewController: controller)
+        navigationController?.present(nav, animated: true)
     }
 }
