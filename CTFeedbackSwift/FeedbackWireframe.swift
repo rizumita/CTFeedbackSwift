@@ -10,7 +10,8 @@ import MessageUI
 protocol FeedbackWireframeProtocol {
     func showTopicsView(with service: FeedbackEditingServiceProtocol)
     func showMailComposer(with feedback: Feedback)
-    func showAttachmentActionSheet(authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
+    func showAttachmentActionSheet(cellRect: CGRect,
+                                   authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
                                    authorizeCamera: @escaping (@escaping (Bool) -> ()) -> (),
                                    deleteAction: (() -> ())?)
     func showFeedbackGenerationError()
@@ -63,7 +64,8 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
         viewController?.present(controller, animated: true)
     }
 
-    func showAttachmentActionSheet(authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
+    func showAttachmentActionSheet(cellRect: CGRect,
+                                   authorizePhotoLibrary: @escaping (@escaping (Bool) -> ()) -> (),
                                    authorizeCamera: @escaping (@escaping (Bool) -> ()) -> (),
                                    deleteAction: (() -> ())?) {
         let alertController = UIAlertController(title: .none,
@@ -106,8 +108,8 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
                                                 style: .cancel))
         let screenSize = UIScreen.main.bounds
         alertController.popoverPresentationController?.sourceView = viewController?.view
-        alertController.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height/2, width: 0, height: 0)
-        alertController.popoverPresentationController?.permittedArrowDirections = .init(rawValue: 0)
+        alertController.popoverPresentationController?.sourceRect = cellRect
+        alertController.popoverPresentationController?.permittedArrowDirections = .any
 
         viewController?.present(alertController, animated: true)
     }
