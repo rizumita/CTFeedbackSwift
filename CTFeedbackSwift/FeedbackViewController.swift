@@ -135,7 +135,11 @@ extension FeedbackViewController {
         case _ as TopicItem:
             wireframe.showTopicsView(with: feedbackEditingService)
         case _ as AttachmentItem:
+            guard let cell = tableView.cellForRow(at: indexPath) else {
+                fatalError("Can't get cell");
+            }
             wireframe.showAttachmentActionSheet(
+                cellRect: cell.superview!.convert(cell.frame, to: view),
                 authorizePhotoLibrary: { completion in
                     PHPhotoLibrary.requestAuthorization { status in
                         DispatchQueue.main.async {
