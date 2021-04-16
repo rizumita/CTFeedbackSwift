@@ -15,7 +15,8 @@ public class FeedbackItemsDataSource {
     public init(topics: [TopicProtocol],
                 hidesUserEmailCell: Bool = true,
                 hidesAttachmentCell: Bool = false,
-                hidesAppInfoSection: Bool = false) {
+                hidesAppInfoSection: Bool = false,
+                appName: String? = nil) {
         sections.append(FeedbackItemsSection(title: CTLocalizedString("CTFeedback.UserDetail"),
                                              items: [UserEmailItem(isHidden: hidesUserEmailCell)]))
         sections.append(FeedbackItemsSection(items: [TopicItem(topics), BodyItem()]))
@@ -25,7 +26,7 @@ public class FeedbackItemsDataSource {
                                              items: [DeviceNameItem(),
                                                      SystemVersionItem()]))
         sections.append(FeedbackItemsSection(title: CTLocalizedString("CTFeedback.AppInfo"),
-                                             items: [AppNameItem(isHidden: hidesAppInfoSection),
+                                             items: [AppNameItem(isHidden: hidesAppInfoSection, name: appName),
                                                      AppVersionItem(isHidden: hidesAppInfoSection),
                                                      AppBuildItem(isHidden: hidesAppInfoSection)]))
     }
