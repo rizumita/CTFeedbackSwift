@@ -18,7 +18,7 @@ extension Bundle {
     }
 
     static var platformNamesPlistPath: String? {
-        let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle]
+        let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle, Bundle.module]
         for bundle in bundles {
             guard let path = bundle.path(forResource: "PlatformNames", ofType: "plist")
                 else { continue }
