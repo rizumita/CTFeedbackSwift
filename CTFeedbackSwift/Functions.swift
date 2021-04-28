@@ -8,7 +8,12 @@ import MobileCoreServices
 import AVFoundation
 
 func CTLocalizedString(_ key: String) -> String {
+    #if SWIFT_PACKAGE && swift(>=5.3)
     let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle, Bundle.module]
+    #else
+    let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle]
+    #endif
+
     for bundle in bundles {
         let string = NSLocalizedString(key,
                                        tableName: "CTFeedbackLocalizable",
