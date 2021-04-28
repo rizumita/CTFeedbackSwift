@@ -26,7 +26,8 @@ public class FeedbackConfiguration {
                 hidesUserEmailCell: Bool = true,
                 hidesAttachmentCell: Bool = false,
                 hidesAppInfoSection: Bool = false,
-                usesHTML: Bool = false) {
+                usesHTML: Bool = false,
+                appName: String? = nil) {
         self.subject = subject
         self.additionalDiagnosticContent = additionalDiagnosticContent
         self.toRecipients = toRecipients
@@ -36,6 +37,7 @@ public class FeedbackConfiguration {
         self.dataSource = FeedbackItemsDataSource(topics: topics,
                                                   hidesUserEmailCell: hidesUserEmailCell,
                                                   hidesAttachmentCell: hidesAttachmentCell,
-                                                  hidesAppInfoSection: hidesAppInfoSection)
+                                                  hidesAppInfoSection: hidesAppInfoSection,
+                                                  appName: appName)
     }
 }

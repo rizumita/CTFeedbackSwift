@@ -11,7 +11,7 @@ import Dispatch
 import MessageUI
 import Photos
 
-public class FeedbackViewController: UITableViewController {
+open class FeedbackViewController: UITableViewController {
     public var mailComposeDelegate:           MFMailComposeViewControllerDelegate?
     public var replacedFeedbackSendingAction: ((Feedback) -> ())?
     public var feedbackDidFailed:             ((MFMailComposeResult, NSError) -> ())?

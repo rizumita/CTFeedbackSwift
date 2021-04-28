@@ -1,8 +1,10 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
+
 import PackageDescription
 
 let package = Package(
     name: "CTFeedbackSwift",
+    defaultLocalization: "en",
     platforms: [
         // Some platform where run yours library
         .iOS(.v10), .tvOS(.v10), .watchOS(.v4)

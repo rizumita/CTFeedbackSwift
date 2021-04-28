@@ -1054,7 +1054,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RV6DJ2NMCD;
+				DEVELOPMENT_TEAM = 68SVGWK7EA;
 				INFOPLIST_FILE = CTFeedbackSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackSwiftTests;
@@ -1067,7 +1067,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RV6DJ2NMCD;
+				DEVELOPMENT_TEAM = 68SVGWK7EA;
 				INFOPLIST_FILE = CTFeedbackSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackSwiftTests;
@@ -1082,7 +1082,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RV6DJ2NMCD;
+				DEVELOPMENT_TEAM = 68SVGWK7EA;
 				INFOPLIST_FILE = CTFeedbackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackDemo;
@@ -1097,7 +1097,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RV6DJ2NMCD;
+				DEVELOPMENT_TEAM = 68SVGWK7EA;
 				INFOPLIST_FILE = CTFeedbackDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.caph.CTFeedbackDemo;
