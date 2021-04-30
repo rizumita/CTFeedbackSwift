@@ -24,6 +24,17 @@ class BodyCell: UITableViewCell {
         result.backgroundColor = .clear
         return result
     }()
+    
+    let placeholederLabel: UILabel = {
+        let result = UILabel()
+        result.text = CTLocalizedString("CTFeedback.BodyPlaceholder")
+        result.font = .systemFont(ofSize: 14.0)
+        result.numberOfLines = 1
+        result.isUserInteractionEnabled = false
+        result.translatesAutoresizingMaskIntoConstraints = false
+        return result
+    }()
+    
     var heightConstraint: NSLayoutConstraint?
 
     var height: CGFloat {
@@ -37,13 +48,29 @@ class BodyCell: UITableViewCell {
 
         textView.delegate = self
         contentView.addSubview(textView)
+        contentView.addSubview(placeholederLabel)
         contentView.topAnchor.constraint(equalTo: textView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: textView.bottomAnchor).isActive = true
-        contentView.leadingAnchor.constraint(equalTo: textView.leadingAnchor).isActive = true
-        contentView.trailingAnchor.constraint(equalTo: textView.trailingAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: -12.0).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: textView.trailingAnchor, constant: -12.0).isActive = true
         heightConstraint = contentView.heightAnchor.constraint(equalToConstant: height)
         heightConstraint?.priority = .defaultHigh
         heightConstraint?.isActive = true
+        
+        contentView.topAnchor.constraint(
+            equalTo: placeholederLabel.topAnchor,
+            constant: -8.0
+        ).isActive = true
+        
+        contentView.leadingAnchor.constraint(
+            equalTo: placeholederLabel.leadingAnchor,
+            constant: -16.0
+        ).isActive = true
+        
+        contentView.trailingAnchor.constraint(
+            equalTo: placeholederLabel.trailingAnchor,
+            constant: -16.0
+        ).isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -51,6 +78,7 @@ class BodyCell: UITableViewCell {
 
 extension BodyCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        placeholederLabel.isHidden = !textView.text.isEmpty
         heightConstraint?.constant = height
         eventHandler?.bodyCellHeightChanged()
         eventHandler?.bodyTextDidChange(textView.text)

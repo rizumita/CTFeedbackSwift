@@ -8,7 +8,7 @@ import Foundation
 public struct DeviceNameItem: FeedbackItemProtocol {
     var deviceName: String {
         guard let path = Bundle.platformNamesPlistPath,
-              let dictionary = NSDictionary(contentsOfFile: path) as? [String : String]
+              let dictionary = NSDictionary(contentsOfFile: path) as? [String: String]
             else { return "" }
 
         let rawPlatform = platform
@@ -16,13 +16,15 @@ public struct DeviceNameItem: FeedbackItemProtocol {
     }
 
     private var platform: String {
-        var mib: [Int32] = [CTL_HW, HW_MACHINE]
-        var len: Int     = 2
-        sysctl(&mib, 2, .none, &len, .none, 0)
-        var machine = [CChar](repeating: 0, count: Int(len))
-        sysctl(&mib, 2, &machine, &len, .none, 0)
-        let result = String(cString: machine)
-        return result
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        guard let machine = withUnsafePointer(to: &systemInfo.machine, {
+            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
+                ptr in
+                String.init(validatingUTF8: ptr)
+            }
+        }) else { return "Unknown" }
+        return String(validatingUTF8: machine) ?? "Unknown"
     }
 
     public let isHidden: Bool = false

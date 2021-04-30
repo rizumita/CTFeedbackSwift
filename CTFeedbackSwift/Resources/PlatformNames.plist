@@ -72,6 +72,14 @@
 	<string>iPhone 11 Pro Max</string>
 	<key>iPhone12,8</key>
 	<string>iPhone SE (2nd Gen)</string>
+	<key>iPhone13,1</key>
+	<string>iPhone 12 Mini</string>
+	<key>iPhone13,2</key>
+	<string>iPhone 12</string>
+	<key>iPhone13,3</key>
+	<string>iPhone 12 Pro</string>
+	<key>iPhone13,4</key>
+	<string>iPhone 12 Pro Max</string>
 	<key>iPod1,1</key>
 	<string>iPod Touch 1G</string>
 	<key>iPod2,1</key>
@@ -196,9 +204,9 @@
 	<string>iPad Air (3rd generation WiFi)</string>
 	<key>iPad11,4</key>
 	<string>iPad Air (3rd generation Cellular)</string>
-	<key>i386</key>
-	<string>Simulator</string>
-	<key>x86_64</key>
-	<string>Simulator</string>
+<!--	<key>i386</key>-->
+<!--	<string>Simulator</string>-->
+<!--	<key>x86_64</key>-->
+<!--	<string>Simulator</string>-->
 </dict>
 </plist>
