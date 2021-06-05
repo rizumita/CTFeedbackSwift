@@ -148,9 +148,11 @@ extension FeedbackViewController {
                     }
                 },
                 authorizeCamera: { completion in
-                    AVCaptureDevice.requestAccess(for: AVMediaType.video) { result in
-                        DispatchQueue.main.async {
-                            completion(result)
+                    if #available(iOS 7.0, macCatalyst 14.0, *) {
+                        AVCaptureDevice.requestAccess(for: .video) { result in
+                            DispatchQueue.main.async {
+                                completion(result)
+                            }
                         }
                     }
                 },
