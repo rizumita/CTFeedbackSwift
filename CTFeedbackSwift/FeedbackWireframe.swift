@@ -106,7 +106,7 @@ extension FeedbackWireframe: FeedbackWireframeProtocol {
 
         alertController.addAction(UIAlertAction(title: CTLocalizedString("CTFeedback.Cancel"),
                                                 style: .cancel))
-        let screenSize = UIScreen.main.bounds
+
         alertController.popoverPresentationController?.sourceView = viewController?.view
         alertController.popoverPresentationController?.sourceRect = cellRect
         alertController.popoverPresentationController?.permittedArrowDirections = .any
@@ -181,10 +181,8 @@ private extension FeedbackWireframe {
         let alert = UIAlertController(title: .none,
                                       message: CTLocalizedString("CTFeedback.requiredLibraryAccess"),
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.openURL(url)
-            }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [unowned self] action in
+            self.redirectToSettings()
         }))
         viewController?.present(alert, animated: true)
     }
@@ -193,11 +191,19 @@ private extension FeedbackWireframe {
         let alert = UIAlertController(title: .none,
                                       message: CTLocalizedString("CTFeedback.requiredCameraAccess"),
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.openURL(url)
-            }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [unowned self] action in
+            self.redirectToSettings()
         }))
         viewController?.present(alert, animated: true)
+    }
+
+    private func redirectToSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+
+        if #available(iOS 10.0, macCatalyst 13.0, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
