@@ -19,6 +19,6 @@ class AppVersionCellTests: XCTestCase {
                                  with: item,
                                  for: IndexPath(row: 0, section: 0),
                                  eventHandler: .none)
-        XCTAssertEqual(cell.textLabel?.text, "Version")
+        XCTAssertEqual(cell.textLabel?.text, CTLocalizedString("CTFeedback.Version"))
     }
 }

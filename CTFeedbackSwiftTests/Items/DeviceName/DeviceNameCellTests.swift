@@ -18,7 +18,11 @@ class DeviceNameCellTests: XCTestCase {
         let item      = DeviceNameItem()
         let indexPath = IndexPath(row: 0, section: 0)
         DeviceNameCell.configure(cell, with: item, for: indexPath, eventHandler: .none)
-        XCTAssertEqual(cell.textLabel?.text, "Device")
-        XCTAssertEqual(cell.detailTextLabel?.text, "Simulator")
+        XCTAssertEqual(cell.textLabel?.text, CTLocalizedString("CTFeedback.Device"))
+        #if arch(x86_64)
+        XCTAssertEqual(cell.detailTextLabel?.text, "x86_64")
+        #elseif arch(i386)
+        XCTAssertEqual(cell.detailTextLabel?.text, "i386")
+        #endif
     }
 }
