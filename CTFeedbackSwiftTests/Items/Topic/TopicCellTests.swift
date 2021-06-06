@@ -17,7 +17,7 @@ class TopicCellTests: XCTestCase {
         let item = TopicItem(TopicItem.defaultTopics)
         let indexPath = IndexPath(row: 0, section: 0)
         TopicCell.configure(cell, with: item, for: indexPath, eventHandler: .none)
-        XCTAssertEqual(cell.textLabel?.text, "Topic")
+        XCTAssertEqual(cell.textLabel?.text, CTLocalizedString("CTFeedback.Topic"))
         XCTAssertEqual(cell.detailTextLabel?.text, item.selected?.localizedTitle)
     }
 }

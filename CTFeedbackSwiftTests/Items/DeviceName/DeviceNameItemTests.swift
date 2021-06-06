@@ -14,6 +14,10 @@ class DeviceNameItemTests: XCTestCase {
     
     func testDeviceName() {
         let item = DeviceNameItem()
-        XCTAssertEqual(item.deviceName, "Simulator")
+        #if arch(x86_64)
+        XCTAssertEqual(item.deviceName, "x86_64")
+        #elseif arch(i386)
+        XCTAssertEqual(item.deviceName, "i386")
+        #endif
     }
 }

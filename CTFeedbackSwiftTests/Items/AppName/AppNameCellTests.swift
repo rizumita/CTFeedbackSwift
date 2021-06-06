@@ -19,6 +19,6 @@ class AppNameCellTests: XCTestCase {
                               with: item,
                               for: IndexPath(row: 0, section: 0),
                               eventHandler: .none)
-        XCTAssertEqual(cell.textLabel?.text, "Name")
+        XCTAssertEqual(cell.textLabel?.text, CTLocalizedString("CTFeedback.Name"))
     }
 }
