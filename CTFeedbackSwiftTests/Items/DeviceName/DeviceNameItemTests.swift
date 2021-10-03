@@ -14,6 +14,11 @@ class DeviceNameItemTests: XCTestCase {
     
     func testDeviceName() {
         let item = DeviceNameItem()
-        XCTAssertEqual(item.deviceName, "Simulator")
+        switch item.deviceName {
+        case "Simulator", "arm64":
+            break
+        default:
+            XCTFail()
+        }
     }
 }
