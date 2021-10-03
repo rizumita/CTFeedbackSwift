@@ -21,7 +21,7 @@ class DeviceNameCellTests: XCTestCase {
         XCTAssertEqual(cell.textLabel?.text, "Device")
         
         switch cell.detailTextLabel?.text {
-        case "Simulator", "arm64":
+        case "Simulator", "arm64", "x86_64":
             break
         default:
             XCTFail(cell.detailTextLabel?.text ?? "")

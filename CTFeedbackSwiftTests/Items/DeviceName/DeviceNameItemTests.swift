@@ -15,7 +15,7 @@ class DeviceNameItemTests: XCTestCase {
     func testDeviceName() {
         let item = DeviceNameItem()
         switch item.deviceName {
-        case "Simulator", "arm64":
+        case "Simulator", "arm64", "x86_64":
             break
         default:
             XCTFail(item.deviceName)
