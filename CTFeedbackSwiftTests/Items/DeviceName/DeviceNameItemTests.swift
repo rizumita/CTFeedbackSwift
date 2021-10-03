@@ -18,7 +18,7 @@ class DeviceNameItemTests: XCTestCase {
         case "Simulator", "arm64":
             break
         default:
-            XCTFail()
+            XCTFail(item.deviceName)
         }
     }
 }

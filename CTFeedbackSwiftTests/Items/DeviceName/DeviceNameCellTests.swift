@@ -24,7 +24,7 @@ class DeviceNameCellTests: XCTestCase {
         case "Simulator", "arm64":
             break
         default:
-            XCTFail()
+            XCTFail(cell.detailTextLabel?.text ?? "")
         }
     }
 }
