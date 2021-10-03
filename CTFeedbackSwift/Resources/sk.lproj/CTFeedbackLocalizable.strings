@@ -1,0 +1,60 @@
+/*
+  Localizable.strings
+  CTFeedbackSwiftLanguages
+
+  Created by Sebastian Szöcs on 9/28/21.
+  
+*/
+"Question" = "Otázka";
+
+"Request" = "Požiadavka";
+
+"Bug Report" = "Hlásenie chyby";
+
+"Other" = "Ostatné";
+
+"CTFeedback.Device" = "Zariadenie";
+
+"CTFeedback.iOS" = "iOS";
+
+"CTFeedback.Name" = "Apka";
+
+"CTFeedback.Version" = "Verzia";
+
+"CTFeedback.Build" = "Build";
+
+"CTFeedback.DeviceInfo" = "Informácie o zariadení";
+
+"CTFeedback.AppInfo" = "Informácie o apke";
+
+"CTFeedback.Feedback" = "Spätná väzba";
+
+"CTFeedback.Topic" = "Téma";
+
+"CTFeedback.Topics" = "Témy";
+
+"CTFeedback.Error" = "Chyba";
+
+"CTFeedback.Mail" = "Mail";
+
+"CTFeedback.MailConfigurationErrorMessage" ="Nemáš platné e-mailové konto";
+
+"CTFeedback.Dismiss" ="Zrušiť";
+
+"CTFeedback.AdditionalInfo"="Dodatočné informácie";
+
+"CTFeedback.AttachImageOrVideo" ="Vyber prílohu pre spätnú väzbu (obrázok)";
+
+"CTFeedback.Cancel" ="Zrušiť";
+
+"CTFeedback.Camera" ="Kamera";
+
+"CTFeedback.PhotoLibrary" ="Vybrať z albumu";
+"CTFeedback.UserDetail" = "Detail užívateľa";
+"CTFeedback.FeedbackGenerationErrorMessage" = "Vyskytla sa chyba pri generovaní spätnej väzby";
+"CTFeedback.UnknownError" = "Neznáma chyba";
+"CTFeedback.Delete" = "Vymazať";
+"CTFeedback.requiredCameraAccess" = "Apka vyžaduje prístup ku kamere pre pridanie obrázku";
+"CTFeedback.requiredLibraryAccess" = "Apka vyžaduje prístup ku knižnici fotiek pre vybranie snímku obrazovky";
+
+"CTFeedback.BodyPlaceholder" = "Sem zadaj text...";
