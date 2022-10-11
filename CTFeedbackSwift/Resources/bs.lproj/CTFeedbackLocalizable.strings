@@ -4,13 +4,13 @@
   Created by Ryoichi Izumita on 2013/10/31.
   Copyright (c) 2013 CAPH. All rights reserved. */
 
-"Question" = "Pitanje";
+"CTFeedback.Question" = "Pitanje";
 
-"Request" = "Zahtjev";
+"CTFeedback.Request" = "Zahtjev";
 
-"Bug Report" = "Greška";
+"CTFeedback.BugReport" = "Greška";
 
-"Other" = "Drugo";
+"CTFeedback.Other" = "Drugo";
 
 "CTFeedback.Device" = "Uređaj";
 
