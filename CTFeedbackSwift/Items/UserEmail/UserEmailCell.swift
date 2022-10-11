@@ -51,6 +51,10 @@ extension UserEmailCell: UITextFieldDelegate {
         eventHandler.userEmailTextDidChange(textField.text)
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        eventHandler.userEmailTextDidChange(textField.text)
+    }
 }
 
 extension UserEmailCell: CellFactoryProtocol {
