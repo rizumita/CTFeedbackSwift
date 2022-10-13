@@ -27,7 +27,6 @@ class UserEmailCell: UITableViewCell {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
 
         textField.backgroundColor = .clear
-        textField.delegate = self
         textField.placeholder = CTLocalizedString("CTFeedback.Mail")
         textField.keyboardType = .emailAddress
         contentView.addSubview(textField)
@@ -39,21 +38,12 @@ class UserEmailCell: UITableViewCell {
         textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                             constant: Const.Margin).isActive = true
         textField.heightAnchor.constraint(equalToConstant: Const.Height).isActive = true
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
-}
-
-extension UserEmailCell: UITextFieldDelegate {
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        eventHandler.userEmailTextDidChange(textField.text)
-        return true
-    }
     
-    @available(iOS 10.0, *)
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+    @objc private func textFieldDidChange(_ textField: UITextField) {
         eventHandler.userEmailTextDidChange(textField.text)
     }
 }
