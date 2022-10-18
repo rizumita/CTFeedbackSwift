@@ -42,7 +42,7 @@ struct FeedbackGenerator {
     }
 
     private static func generateSubject(appName: String, topic: TopicProtocol?) -> String {
-        return String(format: "%@: %@", appName, topic?.title ?? "")
+        return String(format: "%@: %@", appName, topic?.localizedTitle ?? "")
     }
 
     private static func generateHTML(body: String,

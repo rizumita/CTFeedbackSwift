@@ -8,6 +8,10 @@ import MobileCoreServices
 import AVFoundation
 
 func CTLocalizedString(_ key: String) -> String {
+    if let customFeedbackBundle = Bundle.customFeedbackBundle {
+        return customFeedbackBundle.localizedString(forKey: key, value: nil, table: nil)
+    }
+
     #if SWIFT_PACKAGE && swift(>=5.3)
     let bundles: [Bundle] = [Bundle.main, Bundle.feedbackBundle, Bundle.module]
     #else

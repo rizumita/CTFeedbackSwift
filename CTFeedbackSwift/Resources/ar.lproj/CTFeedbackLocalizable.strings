@@ -4,13 +4,13 @@
   Created by Ehab Abdou on 2016/05/10.
   Copyright (c) 2013 CAPH. All rights reserved. */
 
-"Question" = "سؤال";
+"CTFeedback.Question" = "سؤال";
 
-"Request" = "طلب";
+"CTFeedback.Request" = "طلب";
 
-"Bug Report" = "الإبلاغ عن خطأ";
+"CTFeedback.BugReport" = "الإبلاغ عن خطأ";
 
-"Other" = "آخر";
+"CTFeedback.Other" = "آخر";
 
 "CTFeedback.Device" = "الجهاز";
 

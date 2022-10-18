@@ -11,10 +11,10 @@ public protocol TopicProtocol {
 }
 
 enum Topic: String {
-    case question  = "Question"
-    case request   = "Request"
-    case bugReport = "Bug Report"
-    case other     = "Other"
+    case question  = "CTFeedback.Question"
+    case request   = "CTFeedback.Request"
+    case bugReport = "CTFeedback.BugReport"
+    case other     = "CTFeedback.Other"
 }
 
 extension Topic: TopicProtocol {

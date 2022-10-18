@@ -6,13 +6,13 @@
 
 // Edited by Dennis Kutlubaev (alwawee@gmail.com)
 
-"Question" = "Вопрос";
+"CTFeedback.Question" = "Вопрос";
 
-"Request" = "Предложение";
+"CTFeedback.Request" = "Предложение";
 
-"Bug Report" = "Уведомление об ошибке";
+"CTFeedback.BugReport" = "Уведомление об ошибке";
 
-"Other" = "Другое";
+"CTFeedback.Other" = "Другое";
 
 "CTFeedback.Device" = "Устройство";
 

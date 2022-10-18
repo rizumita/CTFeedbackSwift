@@ -9,6 +9,8 @@ import Dispatch
 var _feedbackBundle: Bundle?
 
 extension Bundle {
+    public static var customFeedbackBundle: Bundle?
+    
     static var feedbackBundle: Bundle {
         if let bundle = _feedbackBundle { return bundle }
 

@@ -6,13 +6,13 @@
 
 // Edited by Gürhan Yerlikaya (gurhanyerlikaya@gmail.com)
 
-"Question" = "Soru";
+"CTFeedback.Question" = "Soru";
 
-"Request" = "İstek";
+"CTFeedback.Request" = "İstek";
 
-"Bug Report" = "Hata bildirimi";
+"CTFeedback.BugReport" = "Hata bildirimi";
 
-"Other" = "Diğer";
+"CTFeedback.Other" = "Diğer";
 
 "CTFeedback.Device" = "Cihaz";
 

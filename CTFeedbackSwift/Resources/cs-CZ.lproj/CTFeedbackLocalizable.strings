@@ -5,13 +5,13 @@
   Created by Sebastian Szöcs on 9/28/21.
   
 */
-"Question" = "Otázka";
+"CTFeedback.Question" = "Otázka";
 
-"Request" = "Žádost";
+"CTFeedback.Request" = "Žádost";
 
-"Bug Report" = "Hlášení chyby";
+"CTFeedback.BugReport" = "Hlášení chyby";
 
-"Other" = "Jiný";
+"CTFeedback.Other" = "Jiný";
 
 "CTFeedback.Device" = "Zařízení";
 

@@ -4,13 +4,13 @@
   Created by Ryoichi Izumita on 2013/10/31.
   Copyright (c) 2013 CAPH. All rights reserved. */
 
-"Question" = "سوال";
+"CTFeedback.Question" = "سوال";
 
-"Request" = "درخواست";
+"CTFeedback.Request" = "درخواست";
 
-"Bug Report" = "بَگ رپورٹ";
+"CTFeedback.BugReport" = "بَگ رپورٹ";
 
-"Other" = "دیگر";
+"CTFeedback.Other" = "دیگر";
 
 "CTFeedback.Device" = "آلہ";
 
